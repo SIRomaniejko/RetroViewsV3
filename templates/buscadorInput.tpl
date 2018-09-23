@@ -5,7 +5,7 @@
 <div>
   <ul id="listaLibros">
     <!-- Tiene que llegar arreglo -->
-      {foreach from=$resultados} item=key}
+      {foreach from=$resultados item=key}
         <li>{$key['nombre']}</li>
       {/foreach}
   </ul>
