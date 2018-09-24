@@ -3,25 +3,25 @@
     class ArticulosController{
         function test(){
             $a = [
-                "id_categoria" => 1,
-                "nombre" => "juegos cristianos",
+                "portada" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS4dJvlASutabk2CJuL2OhSdZLsXudz0PRbZaJH4N8srwr6e3qQ",
+                "titulo" => "juegos cristianos",
+                "descripccion" => "juegos creador por aaaa",
             ];
             $b = [
-                "id_categoria" => 2,
-                "nombre" => "juegos satanicos",
+                "portada" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS4dJvlASutabk2CJuL2OhSdZLsXudz0PRbZaJH4N8srwr6e3qQ",
+                "titulo" => "juegos cristianos",
+                "descripccion" => "juegos creador por aaaa",
             ];
             $c = [
                 "id_categoria" => 3,
                 "nombre" => "juegos ateos",
             ];
-            $categorias = array($a, $b, $c);
+            $categorias = array($a, $b);
             $smarty = new Smarty();
-            $smarty->assign('Titulo', ""); // El 'Titulo' del assign puede ser cualquier valor
-            $smarty->assign('imgPath', "https://prod.media.libero.pe/660x378/libero/imagen/2017/12/27/noticia-john-cena-wwe.jpg");
-            $smarty->assign('contenido', "fuck niggers");
-            $smarty->assign('categorias', $categorias);
+            
+            $smarty->assign('reviews', $categorias);
             //$smarty->debugging = true;
-            $smarty->display('templates/creadorArticulo.tpl');
+            $smarty->display('templates/home.tpl');
         }
     }
 ?>
