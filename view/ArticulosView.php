@@ -1,20 +1,21 @@
-<?
+<?php
     require('libs/Smarty.class.php');
-    class ArticulosView.php{
+    class ArticulosView
+    {
+        private $smarty;
         function __construct() {
-            $smarty = new Smarty();
+            $this->smarty = new Smarty();
         }
-        function home(){
-            $smarty->assign('reviews', $reviews);
-            //$smarty->debugging = true;
-            $smarty->display('templates/home.tpl');
+        function home($reviews){
+            $this->smarty->assign('reviews', $reviews);
+            $this->smarty->display('templates/home.tpl');
         }
         function reviewCompleta($review){
-            $smarty->assign('titulo', $review['titulo']);
-            $smarty->assign('portada', $review['portada']);
-            $smarty->assign('contenido', $review['contenido']);
-            $smarty->assign('id_review', $review['id_review']);
-            $smarty->display('templates/review.tpl');
+            $this->smarty->assign('titulo', $review['titulo']);
+            $this->smarty->assign('portada', $review['portada']);
+            $this->smarty->assign('contenido', $review['contenido']);
+            $this->smarty->assign('id_review', $review['id_review']);
+            $this->smarty->display('templates/review.tpl');
         }
     }
 ?>

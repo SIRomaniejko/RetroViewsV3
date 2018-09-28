@@ -1,13 +1,13 @@
 <?php
-    require('libs/Smarty.class.php');
-    require('model/ArticulosModel.php');
-    require('view/ArticulosView.php');
+    require_once('model/ArticulosModel.php');
+    require_once('view/ArticulosView.php');
     class ArticulosController{
-        $ArticulosModel;
-        $ArticulosView;
+        private $ArticulosModel;
+        private $ArticulosView;
         function __construct() {
-            $ArticulosModel = new ArticulosModel();
-            $ArticulosView = new ArticulosView();
+            $this->ArticulosModel = new ArticulosModel();
+            $this->ArticulosView = 
+            new ArticulosView();
         }
         function home(){
             $reviews = $this->ArticulosModel->getReviews();
