@@ -6,8 +6,7 @@
         private $ArticulosView;
         function __construct() {
             $this->ArticulosModel = new ArticulosModel();
-            $this->ArticulosView = 
-            new ArticulosView();
+            $this->ArticulosView = new ArticulosView();
         }
         function home(){
             $reviews = $this->ArticulosModel->getReviews();
