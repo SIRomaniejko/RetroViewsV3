@@ -2,7 +2,8 @@
 
 
 require_once "config/ConfigApp.php";
-require_once "controller\ArticulosController.php";
+require_once "controller/ArticulosController.php";
+require_once "controller/CategoriasController.php";
 
 function parseURL($url)
 {

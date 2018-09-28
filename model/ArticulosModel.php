@@ -1,24 +1,31 @@
 <?php
-
-class ArticulosModel
-{
-  private $db;
-
-  function __construct()
+  class ArticulosModel
   {
-    $this->db = $this->Connect();
-  }
+    private $db;
 
-  function Connect(){
-    return new PDO('mysql:host=localhost;'
-    .'dbname=retro_views;charset=utf8'
-    , 'root', '');
-  }
+    function __construct()
+    {
+      $this->db = $this->Connect();
+    }
 
-  function GetReviews(){
+    function Connect(){
+      return new PDO('mysql:host=localhost;'
+      .'dbname=retro_views;charset=utf8'
+      , 'root', '');
+    }
 
-    $sentencia = $this->db->prepare("SELECT * FROM review");
-    $sentencia->execute();
-    return $sentencia-fetchAll(PDO::FETCH_ASSOC);
+    function GetReviews(){
+
+      $sentencia = $this->db->prepare("SELECT * FROM review");
+      $sentencia->execute();
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function GetReview($id){
+
+      $sentencia = $this->db->prepare("SELECT * FROM review WHERE id_review = ?");
+      $sentencia->execute(array($id));
+      return $sentencia->fetch(PDO::FETCH_ASSOC);
+    }
   }
- ?>
+?>
