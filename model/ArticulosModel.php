@@ -20,5 +20,12 @@
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function GetReview($id){
+
+      $sentencia = $this->db->prepare("SELECT * FROM review WHERE id_review = ?");
+      $sentencia->execute(array($id));
+      return $sentencia->fetch(PDO::FETCH_ASSOC);
+    }
   }
 ?>
