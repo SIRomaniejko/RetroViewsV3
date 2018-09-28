@@ -1,6 +1,7 @@
 <?php
 
-
+define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+define('ROOT',  dirname($_SERVER["PHP_SELF"]));
 require_once "config/ConfigApp.php";
 require_once "controller/ArticulosController.php";
 require_once "controller/CategoriasController.php";
@@ -33,7 +34,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-        header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+        //header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
     }
 }
  ?>

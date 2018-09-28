@@ -5,6 +5,7 @@
         private $smarty;
         function __construct() {
             $this->smarty = new Smarty();
+            $this->smarty->assign('root', ROOT);
         }
         function home($reviews){
             $this->smarty->assign('reviews', $reviews);

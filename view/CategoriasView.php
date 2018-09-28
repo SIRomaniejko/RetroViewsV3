@@ -5,6 +5,7 @@
         private $smarty;
         function __construct() {
             $this->smarty = new Smarty();
+            $this->smarty->assign('root', ROOT);
         }
         function test($categoria){
             $this->smarty->assign('categoria', $categoria);
