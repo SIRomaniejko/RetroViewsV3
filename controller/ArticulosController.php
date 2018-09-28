@@ -6,7 +6,7 @@
         $model;
         $view;
         function __construct() {
-
+            
         }
         function test(){
             $a = [
