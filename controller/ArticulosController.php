@@ -10,8 +10,12 @@
             $ArticulosView = new ArticulosView();
         }
         function home(){
-            $reviews = this->ArticulosModel->getReviewsHome();
-            this->ArticulosView->home($reviews);
+            $reviews = $this->ArticulosModel->getReviews();
+            $this->ArticulosView->home($reviews);
+        }
+        function review($idReview){
+            $review = $this->ArticulosModel->getReview($idReview[0]);
+            $this->ArticulosView->reviewCompleta($review);
         }
     }
 ?>
