@@ -2,3 +2,44 @@
     width: 225px;
     height: 225px;
 }
+.blanco{
+  background-color: rgba(255,255,255,0.7);
+}
+.center{
+  text-align: center;
+}
+.top{
+  margin-top: 1%;
+}
+.bottom{
+  margin-bottom: 1%;
+}
+.left{
+  margin-left: 1%;
+}
+.right{
+  margin-right: 1%;
+}
+.contenido{
+  overflow: hidden;
+  width: 100%;
+}
+.ancho{
+  padding-bottom: 0.3%;
+}
+.grande{
+  width: 40%;
+}
+.izquierda{
+  float: left;
+}
+img{
+  float: left;
+}
+p{
+  margin:0;
+  padding: 0;
+}
+.blanco p{
+  margin-left: 1%;
+}
