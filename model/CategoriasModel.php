@@ -20,9 +20,17 @@
         }
 
         function getCategoria($idCategoria){
-            $sentencia = $this->db->prepare("SELECT * FROM categoria WHERE id_categoria = ?");
+            echo $idCategoria;
+            $sentencia = $this->db->prepare("SELECT * FROM categoria WHERE id_categoria = ? LIMIT 1");
             $sentencia->execute(array($idCategoria));
             $regreso = $sentencia->fetch(PDO::FETCH_ASSOC);
+            return $regreso;
+        }
+
+        function getCategorias(){
+            $sentencia = $this->db->prepare("SELECT * FROM categoria");
+            $sentencia->execute();
+            $regreso = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             return $regreso;
         }
     }

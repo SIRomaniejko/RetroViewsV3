@@ -11,5 +11,9 @@
             $this->smarty->assign('categoria', $categoria);
             $this->smarty->display('templates/testCategoria.tpl');
         }
+        function mostrarCategorias($categorias){
+            $this->smarty->assign('categorias', $categorias);
+            $this->smarty->display('templates/listaDeCategorias.tpl');
+        }
     }
 ?>

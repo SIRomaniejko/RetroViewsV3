@@ -8,7 +8,7 @@ class ConfigApp
       ''=> 'ArticulosController#home',
       'review'=> 'ArticulosController#review',
       'test'=> 'CategoriasController#test',
-      'categorias' => 'CategoriasController#listarCategorias',
+      'categorias' => 'CategoriasController#listaCategorias',
     ];
 
 }
