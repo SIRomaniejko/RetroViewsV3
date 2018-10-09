@@ -7,7 +7,8 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'ArticulosController#home',
       'review'=> 'ArticulosController#review',
-      'test'=> 'CategoriasController#test'
+      'test'=> 'CategoriasController#test',
+      'categorias' => 'CategoriasController#listarCategorias',
     ];
 
 }

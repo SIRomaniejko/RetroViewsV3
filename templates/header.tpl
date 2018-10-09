@@ -19,7 +19,7 @@
                   <a class="nav-link" href="{$root}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item bold">
-                  <a class="nav-link" href="{$root}/test/SandBox">Reviews</a>
+                  <a class="nav-link" href="{$root}/categorias">Reviews</a>
                 </li>
             </ul>
         </div>
