@@ -19,5 +19,11 @@
             return $regreso['id_categoria'];
         }
 
+        function getCategoria($idCategoria){
+            $sentencia = $this->db->prepare("SELECT * FROM categoria WHERE id_categoria = ?");
+            $sentencia->execute(array($idCategoria));
+            $regreso = $sentencia->fetch(PDO::FETCH_ASSOC);
+            return $regreso;
+        }
     }
 ?>
