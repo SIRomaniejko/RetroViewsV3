@@ -9,6 +9,7 @@ class ConfigApp
       'review'=> 'ArticulosController#review',
       'test'=> 'CategoriasController#test',
       'categorias' => 'CategoriasController#listaCategorias',
+      'crearArticulo' => 'ABMarticulosController#creadorArticulos',
     ];
 
 }
