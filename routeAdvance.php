@@ -5,7 +5,7 @@ define('ROOT',  dirname($_SERVER["PHP_SELF"]));
 require_once "config/ConfigApp.php";
 require_once "controller/ArticulosController.php";
 require_once "controller/CategoriasController.php";
-require_once "controller/ABMarticulosController";
+require_once "controller/ABMarticulosController.php";
 
 function parseURL($url)
 {
