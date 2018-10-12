@@ -19,9 +19,9 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function getUsuario($id){
-      $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE id_user = ?");
-      $sentencia->execute(array($id));
+    function getUsuario($user){
+      $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE user = ? LIMIT 1");
+      $sentencia->execute(array($user));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
   }

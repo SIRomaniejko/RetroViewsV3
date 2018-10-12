@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,14 +9,18 @@
   </head>
   <body>
   <div class="formLogin">
-    <form class="top">
+    <form class="top" method="post" action="verificarLogin">
     <div class="form-group">
-        <input type="text" class="form-control" aria-describedby="Usuario" placeholder="Usuario">
+        <input type="text" class="form-control" name="user" placeholder="Usuario">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" placeholder="Contraseña">
+        <input type="password" class="form-control" name="pass" placeholder="Contraseña">
     </div>
     <button type="submit" class="btn btn-primary">Go!</button>
     </form>
+    <div class="container center">
+      <h1>{$Message}</h1>
+    </div>
   </div>
+
 {include file="footer.tpl"}

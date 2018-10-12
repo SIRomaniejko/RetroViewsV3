@@ -9,7 +9,8 @@ class ConfigApp
       'review'=> 'ArticulosController#review',
       'test'=> 'CategoriasController#test',
       'categorias' => 'CategoriasController#listarCategorias',
-      'login' => 'UsuariosController#mostrarLogin'
+      'login' => 'LoginController#login',
+      'verificarLogin' => 'LoginController#verificarLogin'
     ];
 
 }
