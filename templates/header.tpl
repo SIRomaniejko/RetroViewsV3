@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="{$root}/css/main.css">
     <title>RetroViewsV3</title>
   </head>
   <body class="bg-info">
@@ -21,6 +21,9 @@
                 <li class="nav-item bold">
                   <a class="nav-link" href="{$root}/categorias">Reviews</a>
                 </li>
+                <form action="logout" method="post">
+                  <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
             </ul>
         </div>
     </nav>

@@ -34,12 +34,12 @@ class LoginController{
               session_start();
               $_SESSION["User"] = $user;
               // header(review);
-              header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"])."/review/1");
+              header(HOME);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
           }
       }else{
-        //No existe el usario
+        //No existe el usuario
         $this->view->mostrarLogin("No existe el usuario");
       }
   }

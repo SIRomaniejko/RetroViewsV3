@@ -10,6 +10,7 @@ class ConfigApp
       'test'=> 'CategoriasController#test',
       'categorias' => 'CategoriasController#listarCategorias',
       'login' => 'LoginController#login',
+      'logout' => 'LoginController#logout',
       'verificarLogin' => 'LoginController#verificarLogin'
     ];
 
