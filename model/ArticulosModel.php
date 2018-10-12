@@ -27,6 +27,12 @@
       return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
 
+    function getReviewPorTitulo($titulo){
+      $sentencia = $this->db->prepare("SELECT * FROM review WHERE titulo = ?");
+      $sentencia->execute(array($titulo));
+      return $sentencia->fetch(PDO::FETCH_ASSOC);
+    }
+
     function getTituloReviews(){
       $sentencia = $this->db->prepare("SELECT titulo FROM review");
       $sentencia->execute();

@@ -19,16 +19,13 @@
             $titulos = $this->ArticulosModel->getTituloReviews();
             $tieneTituloUnico = true;
             foreach ($titulos as $titulo) {
-                if($titulo == $_POST['titulo']){
+                if($titulo['titulo'] == $_POST['titulo']){
                     $tieneTituloUnico = false;
                 }
             }
             if($tieneTituloUnico){
-                /*$titulo = $_POST['titulo'];
-                $contenido = $_POST['contenido'];
-                $resumen = $_POST['resumen'];
-                $portada = $_POST['portada'];*/
                 $this->ArticulosModel->subirReview($_POST['id_categoria'], $_POST['titulo'], $_POST['contenido'], $_POST['resumen'], $_POST['portada']);
+                header(HOME."/review/".str_replace(' ', '-', $_POST['titulo']));
             }
         }
         private function comprobarTituloUnico($tituloReviewNueva){

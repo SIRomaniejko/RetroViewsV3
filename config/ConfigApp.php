@@ -6,7 +6,7 @@ class ConfigApp
     public static $PARAMS = 'params';
     public static $ACTIONS = [
       ''=> 'ArticulosController#home',
-      'review'=> 'ArticulosController#review',
+      'review'=> 'ArticulosController#verReview',
       'test'=> 'CategoriasController#test',
       'categorias' => 'CategoriasController#listaCategorias',
       'crearArticulo' => 'ABMarticulosController#creadorArticulos',

@@ -12,8 +12,9 @@
             $reviews = $this->ArticulosModel->getReviews();
             $this->ArticulosView->home($reviews);
         }
-        function review($idReview){
-            $review = $this->ArticulosModel->getReview($idReview[0]);
+        function verReview($parametros){+
+            $parametros[0] = str_replace('-', ' ', $parametros[0]);
+            $review = $this->ArticulosModel->getReviewPorTitulo($parametros[0]);
             $this->ArticulosView->reviewCompleta($review);
         }
     }
