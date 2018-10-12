@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-<form class="container" accion="crearArticulo" method="post">
+<form class="container" action="subirReview" method="post">
     <div class="form-group">
         <label for="portada">portada</label>
         <input type="text" class="form-control" id="portada" name="portada" >
@@ -22,7 +22,7 @@
         </div>
         <select class="custom-select" id="categoria" name="categoria">
             {foreach from=$categorias item=categoria}
-                <option value="{$categoria['id_categoria']}"> {$categoria['nombre']}</option>
+                <option value="{$categoria['id_categoria']}"> {$categoria['nombre_categoria']}</option>
             {/foreach}
         </select>
     </div>
