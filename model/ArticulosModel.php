@@ -27,14 +27,19 @@
       return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
 
-    function getNombreReviews(){
+    function getTituloReviews(){
       $sentencia = $this->db->prepare("SELECT titulo FROM review");
-      $setencia->execute();
+      $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function subirReview($review){
-      echo ($_POST['titulo']);
+    function subirReview($id_categoria, $titulo, $contenido, $resumen, $portada){
+      $sentencia = $this->db->prepare("INSERT INTO review(id_categoria, titulo, contenido, resumen, portada) VALUES(?, ?, ?, ?, ?)");
+      echo($titulo);
+      echo($contenido);
+      echo($resumen);
+      echo($portada);
+      $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada));
     }
   }
 ?>

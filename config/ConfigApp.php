@@ -10,6 +10,7 @@ class ConfigApp
       'test'=> 'CategoriasController#test',
       'categorias' => 'CategoriasController#listaCategorias',
       'crearArticulo' => 'ABMarticulosController#creadorArticulos',
+      'subirArticulo' => 'ABMarticulosController#subirArticulo',
     ];
 
 }
