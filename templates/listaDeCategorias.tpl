@@ -1,9 +1,11 @@
 {include file="header.tpl"}
     {foreach from=$categorias item=categoria}
     <div class="row">
-        <a href="../reviewsCategoria/{$categoria['nombre_categoria']}"<div class="container bg-warning col-sm- mt-1 pl-0 rounded">
-            <h1>{$categoria['nombre_categoria']}</h1>
-        </div></a>
+        <div class="container bg-warning col-sm- mt-1 pl-0 rounded">
+            <a href="../reviewsCategoria/{$categoria['nombre_categoria']}" class="limpiaAnchor">
+            <h1 class="text-center">{$categoria['nombre_categoria']}</h1>
+            </a>
+        </div>
     </div>
     {/foreach}
 {include file="footer.tpl"}

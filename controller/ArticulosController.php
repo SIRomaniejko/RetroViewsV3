@@ -10,6 +10,9 @@
         }
         function home(){
             $reviews = $this->ArticulosModel->getReviews();
+            foreach($reviews as &$review){
+                $review['tituloConBarra'] = str_replace(' ', '-', $review['titulo']);
+            }
             $this->ArticulosView->home($reviews);
         }
         function verReview($parametros){+
