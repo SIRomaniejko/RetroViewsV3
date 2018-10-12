@@ -11,6 +11,9 @@ class ConfigApp
       'categorias' => 'CategoriasController#listaCategorias',
       'crearArticulo' => 'ABMarticulosController#creadorArticulos',
       'subirArticulo' => 'ABMarticulosController#subirArticulo',
+      'login' => 'LoginController#login',
+      'logout' => 'LoginController#logout',
+      'verificarLogin' => 'LoginController#verificarLogin'
     ];
 
 }

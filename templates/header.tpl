@@ -21,6 +21,9 @@
                 <li class="nav-item bold">
                   <a class="nav-link" href="{$root}/categorias">Categorias</a>
                 </li>
+                <form action="logout" method="post">
+                  <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
             </ul>
         </div>
     </nav>

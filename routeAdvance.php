@@ -2,10 +2,14 @@
 
 define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 define('ROOT',  dirname($_SERVER["PHP_SELF"]));
+define('LOGIN', HOME."/login");
 require_once "config/ConfigApp.php";
 require_once "controller/ArticulosController.php";
 require_once "controller/CategoriasController.php";
 require_once "controller/ABMarticulosController.php";
+require_once "controller/UsuariosController.php";
+require_once "controller/LoginController.php";
+require_once "controller/SecuredController.php";
 
 function parseURL($url)
 {

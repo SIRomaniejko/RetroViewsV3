@@ -51,3 +51,10 @@ p{
   color: black;
   text-decoration: none;
 }
+.formLogin{
+  width: 50%;
+  margin: 0 auto;
+}
+.formLogin button{
+  width: 100%;
+}
