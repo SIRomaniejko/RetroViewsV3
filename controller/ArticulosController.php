@@ -15,7 +15,7 @@
             }
             $this->ArticulosView->home($reviews);
         }
-        function verReview($parametros){+
+        function verReview($parametros){
             $parametros[0] = str_replace('-', ' ', $parametros[0]);
             $review = $this->ArticulosModel->getReviewPorTitulo($parametros[0]);
             $this->ArticulosView->reviewCompleta($review);

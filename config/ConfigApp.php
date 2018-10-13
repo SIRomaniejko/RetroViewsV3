@@ -10,7 +10,9 @@ class ConfigApp
       'test'=> 'CategoriasController#test',
       'categorias' => 'CategoriasController#listaCategorias',
       'crearArticulo' => 'ABMarticulosController#creadorArticulos',
+      'editarArticulo' => 'ABMarticulosController#editorArticulos',
       'subirArticulo' => 'ABMarticulosController#subirArticulo',
+      'updateArticulo' => 'ABMarticulosController#updateArticulo',
       'login' => 'LoginController#login',
       'logout' => 'LoginController#logout',
       'verificarLogin' => 'LoginController#verificarLogin'

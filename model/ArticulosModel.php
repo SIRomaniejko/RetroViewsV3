@@ -47,5 +47,16 @@
       echo($portada);
       $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada));
     }
+
+    function getTitulosMenosElDeId($id_review){
+      $sentencia = $this->db->prepare("SELECT titulo FROM review WHERE id_review != ?");
+      $sentencia->execute(array($id_review));
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function updateReview($id_review, $id_categoria, $titulo, $contenido, $resumen, $portada){
+      $sentencia = $this->db->prepare("UPDATE review SET id_categoria = ?, titulo = ?, contenido = ?, resumen = ?, portada = ? WHERE id_review = ?");
+      $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada, $id_review));
+    }
   }
 ?>
