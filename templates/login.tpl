@@ -16,7 +16,7 @@
     <div class="form-group">
         <input type="password" class="form-control" name="pass" placeholder="Contraseña">
     </div>
-    <button type="submit" class="btn btn-primary">Go!</button>
+    <button type="submit" class="btn btn-primary ancho">Login</button>
     </form>
     <div class="container center">
       <h1>{$Message}</h1>
