@@ -1,24 +1,24 @@
 {include file="header.tpl"}
 <form class="container" action="subirArticulo" method="post">
     <div class="form-group">
-        <label for="portada">portada</label>
+        <label for="portada">Portada</label>
         <input type="text" class="form-control" id="portada" name="portada" >
     </div>
     <div class="form-group">
-        <label for="titulo">titulo</label>
+        <label for="titulo">Título</label>
         <input type="text" class="form-control" id="titulo" name="titulo" >
     </div>
     <div class="form-group">
-        <label for="resumen">resumen</label>
+        <label for="resumen">Resumen</label>
         <input type="text" class="form-control" id="resumen" name="resumen">
     </div>
     <div class="form-group">
-        <label for="contenido">contenido</label>
-        <textarea class="form-control" id="contenido" name="contenido" rows="40">hola</textarea>
+        <label for="contenido">Contenido</label>
+        <textarea class="form-control" id="contenido" name="contenido" rows="5"></textarea>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="categoria">Categoria</label>
+            <label class="input-group-text" for="categoria">Categorías</label>
         </div>
         <select class="custom-select" id="categoria" name="id_categoria">
             {foreach from=$categorias item=categoria}
@@ -26,6 +26,8 @@
             {/foreach}
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div>
+      <button type="submit" class="btn btn-success ancho">Submit</button>
+    </div>
 </form>
 {include file="footer.tpl"}
