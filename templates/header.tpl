@@ -25,7 +25,7 @@
 
             {if isset($user)}
               <li class="nav-item bold">
-                <a class="nav-link bold" href="{$root}/crearArticulo">Administrar</a>
+                <a class="nav-link bold" href="{$root}/administrador">Administrar</a>
               </li>
             </ul>
               <form action="{$root}/logout" method="post">
