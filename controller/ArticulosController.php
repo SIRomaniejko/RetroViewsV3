@@ -1,7 +1,7 @@
 <?php
     require_once('model/ArticulosModel.php');
     require_once('view/ArticulosView.php');
-    class ArticulosController{
+    class ArticulosController {
         private $ArticulosModel;
         private $ArticulosView;
         function __construct() {

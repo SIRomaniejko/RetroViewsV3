@@ -24,5 +24,10 @@
       $sentencia->execute(array($user));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
+    function insertUsuario($user, $pass){
+      
+      $sentencia = $this->db->prepare("INSERT INTO usuario(user,pass) VALUES(?,?)");
+      $sentencia->execute(array($user,$pass));
+    }
   }
 ?>

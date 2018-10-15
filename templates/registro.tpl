@@ -10,14 +10,14 @@
   </head>
   <body>
   <div class="formLogin">
-    <form class="top" method="post" action="verificarLogin">
+    <form class="top" method="post" action="registrarUsuario">
     <div class="form-group">
-        <input type="text" class="form-control" name="user" placeholder="Usuario">
-    </div>
+       <input type="text" class="form-control" placeholder="Usuario" name="user">
+   </div>
     <div class="form-group">
-        <input type="password" class="form-control" name="pass" placeholder="Contraseña">
+        <input type="password" class="form-control" placeholder="Contraseña" name="pass">
     </div>
-    <button type="submit" class="btn btn-primary ancho">Login</button>
+    <button type="submit" class="btn btn-success ancho">Registrar</button>
     </form>
     <div class="container center">
       <h1>{$Message}</h1>

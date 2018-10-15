@@ -1,11 +1,16 @@
 <?php
     require_once('libs/Smarty.class.php');
-    class ArticulosView
-    {
+    class ArticulosView{
         private $smarty;
         function __construct() {
             $this->smarty = new Smarty();
             $this->smarty->assign('root', ROOT);
+            session_start();
+            if(isset($_SESSION['User'])){
+              $this->smarty->assign('user', $_SESSION['User']);
+            }else{
+              $this->smarty->assign('user', null);
+            }
         }
         function home($reviews){
             $this->smarty->assign('reviews', $reviews);

@@ -15,7 +15,9 @@ class ConfigApp
       'updateArticulo' => 'ABMarticulosController#updateArticulo',
       'login' => 'LoginController#login',
       'logout' => 'LoginController#logout',
-      'verificarLogin' => 'LoginController#verificarLogin'
+      'verificarLogin' => 'LoginController#verificarLogin',
+      'registrarse' => 'LoginController#registrarse',
+      'registrarUsuario' => 'LoginController#registrarUsuario'
     ];
 
 }

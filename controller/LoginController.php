@@ -6,6 +6,7 @@ class LoginController{
   private $view;
   private $model;
 
+
   function __construct(){
     $this->view = new LoginView();
     $this->model = new UsuariosModel();
@@ -20,7 +21,11 @@ class LoginController{
   function logout(){
     session_start();
     session_destroy();
-    header(LOGIN);
+    header(HOME);
+  }
+
+  function registrarse(){
+    $this->view->mostrarRegistro();
   }
 
   function verificarLogin(){
@@ -30,10 +35,10 @@ class LoginController{
 
       if(isset($dbUser)){
           if (password_verify($pass, $dbUser["pass"])){
-              //mostrar lista de tareas
               session_start();
               $_SESSION["User"] = $user;
               // header(review);
+
               header(HOME);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
@@ -42,6 +47,20 @@ class LoginController{
         //No existe el usuario
         $this->view->mostrarLogin("No existe el usuario");
       }
+  }
+  function registrarUsuario(){
+    $user = $_POST["user"];
+    $pass = $_POST["pass"];
+    $hash = password_hash($pass, PASSWORD_DEFAULT);
+    $dbUser = $this->model->getUsuario($user);
+    if($dbUser != null){
+      $this->view->mostrarRegistro("El Usuario ya existe");
+    }else{
+      $this->model->insertUsuario($user, $hash);
+      session_start();
+      $_SESSION["User"] = $user;
+      header(HOME);
+    }
   }
 }
 ?>
