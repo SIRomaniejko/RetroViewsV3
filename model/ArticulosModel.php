@@ -32,6 +32,12 @@
       $sentencia->execute(array($titulo));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
+    
+    function getReviewsPorIdCategoria($idCategoria){
+      $sentencia = $this->db->prepare("SELECT * FROM review WHERE id_categoria = ?");
+      $sentencia->execute(array($idCategoria));
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     function getTituloReviews(){
       $sentencia = $this->db->prepare("SELECT titulo FROM review");

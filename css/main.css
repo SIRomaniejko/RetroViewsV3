@@ -2,6 +2,10 @@
     width: 225px;
     height: 225px;
 }
+.ultrachica{
+  width:100px;
+  height:100px;
+}
 .blanco{
   background-color: rgba(255,255,255,0.7);
 }
@@ -59,3 +63,14 @@ p{
 .ancho{
   width: 100%;
 }
+<<<<<<< HEAD
+.sectorAdmin{
+  margin-top: 20px;
+  border-radius: 20px;
+  height: 500px;
+  overflow: scroll;
+  padding: 30px 50px 0 50px;
+  background-color: blueviolet;
+}
+=======
+>>>>>>> c32705cb6f75b15e7cb8b4ed7f28bf610e6be994

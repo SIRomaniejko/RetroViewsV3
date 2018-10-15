@@ -1,6 +1,6 @@
 <?php
     require_once('libs/Smarty.class.php');
-    class ABMarticulosView
+    class ABMView
     {
         private $smarty;
         function __construct() {
@@ -21,6 +21,11 @@
             $this->smarty->assign('categorias', $categorias);
             $this->smarty->assign('review', $review);
             $this->smarty->display('templates/editorArticulo.tpl');
+        }
+        function administrador($reviews, $categorias){
+            $this->smarty->assign('reviews', $reviews);
+            $this->smarty->assign('categorias', $categorias);
+            $this->smarty->display('templates/administrador.tpl');
         }
     }
 ?>
