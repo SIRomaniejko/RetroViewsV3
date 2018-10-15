@@ -9,13 +9,15 @@ class ConfigApp
       'review'=> 'ArticulosController#verReview',
       'test'=> 'CategoriasController#test',
       'categorias' => 'CategoriasController#listaCategorias',
-      'crearArticulo' => 'ABMarticulosController#creadorArticulos',
-      'editarArticulo' => 'ABMarticulosController#editorArticulos',
-      'subirArticulo' => 'ABMarticulosController#subirArticulo',
-      'updateArticulo' => 'ABMarticulosController#updateArticulo',
+      'crearArticulo' => 'ABMController#creadorArticulos',
+      'editarArticulo' => 'ABMController#editorArticulos',
+      'subirArticulo' => 'ABMController#subirArticulo',
+      'updateArticulo' => 'ABMController#updateArticulo',
       'login' => 'LoginController#login',
       'logout' => 'LoginController#logout',
-      'verificarLogin' => 'LoginController#verificarLogin'
+      'categoria' => 'ArticulosController#reviewsCategoria',
+      'verificarLogin' => 'LoginController#verificarLogin',
+      'administrador' => 'ABMController#administrador',
     ];
 
 }

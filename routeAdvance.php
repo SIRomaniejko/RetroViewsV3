@@ -6,7 +6,7 @@ define('LOGIN', HOME."/login");
 require_once "config/ConfigApp.php";
 require_once "controller/ArticulosController.php";
 require_once "controller/CategoriasController.php";
-require_once "controller/ABMarticulosController.php";
+require_once "controller/ABMController.php";
 require_once "controller/UsuariosController.php";
 require_once "controller/LoginController.php";
 require_once "controller/SecuredController.php";

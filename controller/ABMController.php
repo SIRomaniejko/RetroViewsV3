@@ -1,19 +1,19 @@
 <?php
     require_once('model/ArticulosModel.php');
-    require_once('view/ABMarticulosView.php');
-    class ABMarticulosController{
+    require_once('view/ABMView.php');
+    class ABMController{
         private $ArticulosModel;
-        private $ABMarticulosView;
+        private $ABMView;
         private $CategoriasModel;
         function __construct() {
             //clase segura
             $this->ArticulosModel = new ArticulosModel();
-            $this->ABMarticulosView = new ABMarticulosView();
+            $this->ABMView = new ABMView();
             $this->CategoriasModel = new CategoriasModel();
         }
         function creadorArticulos(){
             $categorias = $this->CategoriasModel->getCategorias();
-            $this->ABMarticulosView->creadorArticulos($categorias);
+            $this->ABMView->creadorArticulos($categorias);
         }
         function subirArticulo(){
             $titulos = $this->ArticulosModel->getTituloReviews();
@@ -33,7 +33,7 @@
             $titulo = str_replace('-', ' ', $parametro[0]);
             $categorias = $this->CategoriasModel->getCategorias();
             $review = $this->ArticulosModel->getReviewPorTitulo($titulo);
-            $this->ABMarticulosView->editorArticulos($review, $categorias);
+            $this->ABMView->editorArticulos($review, $categorias);
         }
 
         function updateArticulo(){
@@ -54,6 +54,15 @@
                 print_r($titulos);
                 echo "hongo trolongo";
             }
+        }
+
+        function administrador(){
+            $reviews = $this->ArticulosModel->getReviews();
+            foreach($reviews as &$review){
+                $review['tituloConBarra'] = str_replace(' ', '-', $review['titulo']);
+            }
+            $categorias = $this->CategoriasModel->getCategorias();
+            $this->ABMView->administrador($reviews, $categorias);
         }
     }
 ?>
