@@ -6,7 +6,6 @@
         function __construct() {
             $this->smarty = new Smarty();
             $this->smarty->assign('root', ROOT);
-            session_start();
             if(isset($_SESSION['User'])){
               $this->smarty->assign('user', $_SESSION['User']);
             }else{

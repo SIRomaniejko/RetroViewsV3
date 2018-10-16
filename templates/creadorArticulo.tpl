@@ -27,7 +27,7 @@
         </select>
     </div>
     <div>
-      <button type="submit" class="btn btn-success ancho">Submit</button>
+      <button type="submit" class="btn btn-warning container bottom">Submit</button>
     </div>
 </form>
 {include file="footer.tpl"}

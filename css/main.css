@@ -58,12 +58,10 @@ p{
 .formLogin{
   width: 50%;
   margin: 0 auto;
-  margin-top: 10%;
 }
 .ancho{
   width: 100%;
 }
-<<<<<<< HEAD
 .sectorAdmin{
   margin-top: 20px;
   border-radius: 20px;
@@ -72,5 +70,10 @@ p{
   padding: 30px 50px 0 50px;
   background-color: blueviolet;
 }
-=======
->>>>>>> c32705cb6f75b15e7cb8b4ed7f28bf610e6be994
+.boton{
+  height: 35px;
+  width: 35px;
+}
+.invisiblePropio{
+  background-color: rgba(0, 0, 0, 0);
+}

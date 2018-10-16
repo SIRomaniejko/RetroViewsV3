@@ -64,5 +64,10 @@
       $sentencia = $this->db->prepare("UPDATE review SET id_categoria = ?, titulo = ?, contenido = ?, resumen = ?, portada = ? WHERE id_review = ?");
       $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada, $id_review));
     }
+
+    function eliminarReview($titulo){
+      $sentencia = $this->db->prepare("DELETE FROM review WHERE titulo = ?");
+      $sentencia->execute(array($titulo));
+    }
   }
 ?>

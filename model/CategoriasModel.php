@@ -39,5 +39,20 @@
             $regreso = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             return $regreso;
         }
+
+        function updateCategoria($id, $nombreCategoria){
+            $sentencia = $this->db->prepare("UPDATE categoria SET nombre_categoria = ? WHERE id_categoria = ?");
+            $sentencia->execute(array($nombreCategoria, $id));
+        }
+
+        function crearCategoria($nombreCategoria){
+            $sentencia = $this->db->prepare("INSERT INTO categoria(nombre_categoria) VALUES(?)");
+            $sentencia->execute(array($nombreCategoria));
+        }
+
+        function eliminarCategoria($idCategoria){
+            $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id_categoria = ?");
+            $sentencia->execute(array($idCategoria));
+        }
     }
 ?>

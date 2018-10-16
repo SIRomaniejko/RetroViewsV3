@@ -3,6 +3,7 @@
 define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 define('ROOT',  dirname($_SERVER["PHP_SELF"]));
 define('LOGIN', HOME."/login");
+define('ADMIN', HOME."/administrador");
 require_once "config/ConfigApp.php";
 require_once "controller/ArticulosController.php";
 require_once "controller/CategoriasController.php";

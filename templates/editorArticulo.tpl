@@ -27,6 +27,6 @@
             {/foreach}
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-warning container bottom">Submit</button>
 </form>
 {include file="footer.tpl"}

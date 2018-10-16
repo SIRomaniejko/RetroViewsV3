@@ -20,6 +20,10 @@ class ConfigApp
       'registrarUsuario' => 'LoginController#registrarUsuario',
       'categoria' => 'ArticulosController#reviewsCategoria',
       'administrador' => 'ABMController#administrador',
+      'eliminarArticulo' => 'ABMController#eliminarArticulo',
+      'editarCategoria' => 'ABMController#editarCategoria',
+      'crearCategoria' => 'ABMController#crearCategoria',
+      'eliminarCategoria' => 'ABMController#eliminarCategoria',
     ];
 
 }

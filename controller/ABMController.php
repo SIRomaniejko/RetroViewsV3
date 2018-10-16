@@ -1,12 +1,15 @@
 <?php
     require_once('model/ArticulosModel.php');
     require_once('view/ABMView.php');
-    class ABMController{
+    require_once("controller/SecuredController.php");
+    require_once('model/CategoriasModel.php');
+    class ABMController extends SecuredController{
         private $ArticulosModel;
         private $ABMView;
         private $CategoriasModel;
         function __construct() {
             //clase segura
+            parent::__construct();
             $this->ArticulosModel = new ArticulosModel();
             $this->ABMView = new ABMView();
             $this->CategoriasModel = new CategoriasModel();
@@ -56,13 +59,37 @@
             }
         }
 
+        function eliminarArticulo($parametros){
+            $parametros[0] = str_replace('-', ' ', $parametros[0]);
+            $this->ArticulosModel->eliminarReview($parametros[0]);
+            header(ADMIN);
+        }
+
         function administrador(){
             $reviews = $this->ArticulosModel->getReviews();
             foreach($reviews as &$review){
                 $review['tituloConBarra'] = str_replace(' ', '-', $review['titulo']);
             }
             $categorias = $this->CategoriasModel->getCategorias();
+            foreach($categorias as &$categoria){
+                $categoria['nombreConBarra'] = str_replace(' ', '-', $categoria['nombre_categoria']);
+            }
             $this->ABMView->administrador($reviews, $categorias);
+        }
+
+        function editarCategoria(){
+            $this->CategoriasModel->updateCategoria($_POST['idCategoria'], $_POST['nombreCategoria']);
+            header(ADMIN);
+        }
+
+        function crearCategoria(){
+            $this->CategoriasModel->crearCategoria($_POST['nombreCategoria']);
+            header(ADMIN);
+        }
+        
+        function eliminarCategoria(){
+            $this->CategoriasModel->eliminarCategoria($_POST['idCategoria']);
+            header(ADMIN);
         }
     }
 ?>
