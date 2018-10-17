@@ -8,7 +8,7 @@
     <link rel="icon" href="https://orig00.deviantart.net/f0b2/f/2017/242/c/f/cuphead_icon__8__by_malfacio-dblstxi.png" type="image/gif" sizes="16x16">
     <title>RetroViewsV3</title>
   </head>
-  <body>
+  <body class="fondo">
   <div class="formLogin">
     <form class="top" method="post" action="registrarUsuario">
     <div class="form-group">

@@ -6,7 +6,7 @@
 <div class="container">
   <div class="contenido blanco rounded">
     <img src="{$portada}" class="rounded grande left top bottom right" alt="">
-    <p>{$contenido}</p>
+    <p class="top">{$contenido}</p>
   </div>
 </div>
 

@@ -58,6 +58,7 @@ p{
 .formLogin{
   width: 50%;
   margin: 0 auto;
+  margin-top: 10%;
 }
 .ancho{
   width: 100%;
@@ -70,10 +71,6 @@ p{
   padding: 30px 50px 0 50px;
   background-color: blueviolet;
 }
-.boton{
-  height: 35px;
-  width: 35px;
-}
-.invisiblePropio{
-  background-color: rgba(0, 0, 0, 0);
+.fondo{
+  background-image: url("https://ih0.redbubble.net/image.420273344.8104/flat,550x550,075,f.u6.jpg");
 }
