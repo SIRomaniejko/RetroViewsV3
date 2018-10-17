@@ -18,7 +18,7 @@
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="categoria">Categorías</label>
+            <label class="input-group-text" for="categoria">Categoría</label>
         </div>
         <select class="custom-select" id="categoria" name="id_categoria">
             {foreach from=$categorias item=categoria}
