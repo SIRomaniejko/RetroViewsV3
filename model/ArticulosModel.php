@@ -16,7 +16,7 @@
 
     function getReviews(){
 
-      $sentencia = $this->db->prepare("SELECT * FROM review");
+      $sentencia = $this->db->prepare("SELECT * FROM review ORDER BY id_review DESC");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -34,7 +34,7 @@
     }
     
     function getReviewsPorIdCategoria($idCategoria){
-      $sentencia = $this->db->prepare("SELECT * FROM review WHERE id_categoria = ?");
+      $sentencia = $this->db->prepare("SELECT * FROM review WHERE id_categoria = ? ORDER BY id_review DESC");
       $sentencia->execute(array($idCategoria));
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
