@@ -12,15 +12,20 @@
   <div class="formLogin">
     <form class="top" method="post" action="registrarUsuario">
     <div class="form-group">
-       <input type="text" class="form-control" placeholder="Usuario" name="user">
+       <input type="text" class="form-control" placeholder="Usuario" name="user" autofocus>
    </div>
     <div class="form-group">
         <input type="password" class="form-control" placeholder="Contraseña" name="pass">
     </div>
     <button type="submit" class="btn btn-success ancho">Registrar</button>
     </form>
-    <div class="container center">
+    {if $Message != ""}
+    <div class="p-1 mb-2 bg-danger top center rounded">
+      <h3>{$Message}</h3>
+    {else}
+    <div>
       <h1>{$Message}</h1>
+    {/if}
     </div>
   </div>
 

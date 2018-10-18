@@ -68,5 +68,4 @@
         {/foreach}
         </div>
     </div>
-    <script src="{$root}/js/admin.js"></script>
 {include file="footer.tpl"}
