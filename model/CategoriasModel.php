@@ -54,5 +54,15 @@
             $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id_categoria = ?");
             $sentencia->execute(array($idCategoria));
         }
+
+        function esNombreRepetido($nombreCategoria, $idCategoria = -1){
+            $idEnBBDD = $this->getIdCategoria($nombreCategoria)[0];
+            if($idEnBBDD != null && idEnBBDD != $idCategoria){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>

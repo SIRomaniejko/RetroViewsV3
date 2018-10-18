@@ -24,6 +24,8 @@ class ConfigApp
       'editarCategoria' => 'ABMController#editarCategoria',
       'crearCategoria' => 'ABMController#crearCategoria',
       'eliminarCategoria' => 'ABMController#eliminarCategoria',
+      'errorFormulario' => 'ABMController#errorFormulario',
+      '404' => 'ArticulosController#notFound',
     ];
 
 }

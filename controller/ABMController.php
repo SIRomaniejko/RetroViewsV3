@@ -16,7 +16,14 @@
         }
         function creadorArticulos(){
             $categorias = $this->CategoriasModel->getCategorias();
-            $this->ABMView->creadorArticulos($categorias);
+            $mensaje;
+            if(isset($_COOKIE['mensaje'])){
+                $mensaje = $_COOKIE['mensaje'];
+            }
+            else{
+                $mensaje = " ";
+            }
+            $this->ABMView->creadorArticulos($categorias, $mensaje);
         }
         function subirArticulo(){
             $titulos = $this->ArticulosModel->getTituloReviews();
@@ -29,6 +36,10 @@
             if($tieneTituloUnico){
                 $this->ArticulosModel->subirReview($_POST['id_categoria'], $_POST['titulo'], $_POST['contenido'], $_POST['resumen'], $_POST['portada']);
                 header(HOME."/review/".str_replace(' ', '-', $_POST['titulo']));
+
+            }
+            else{
+                header(ERRORTITULO);
             }
         }
 
@@ -53,9 +64,7 @@
                 header(HOME."/review/".str_replace(' ', '-', $_POST['titulo']));
             }
             else{
-                echo($_POST['id_review']);
-                print_r($titulos);
-                echo "hongo trolongo";
+                header(ERRORTITULO);
             }
         }
 
@@ -78,18 +87,32 @@
         }
 
         function editarCategoria(){
-            $this->CategoriasModel->updateCategoria($_POST['idCategoria'], $_POST['nombreCategoria']);
-            header(ADMIN);
+            if(!$this->CategoriasModel->esNombreRepetido($_POST['nombreCategoria'])){
+                $this->CategoriasModel->updateCategoria($_POST['idCategoria'], $_POST['nombreCategoria']);
+                header(ADMIN);
+            }
+            else{
+                header(ERRORNOMBRE);
+            }
         }
 
         function crearCategoria(){
-            $this->CategoriasModel->crearCategoria($_POST['nombreCategoria']);
-            header(ADMIN);
+            if(!$this->CategoriasModel->esNombreRepetido($_POST['nombreCategoria'])){
+                $this->CategoriasModel->crearCategoria($_POST['nombreCategoria']);
+                header(ADMIN);
+            }
+            else{
+                header(ERRORNOMBRE);
+            }
         }
         
         function eliminarCategoria(){
             $this->CategoriasModel->eliminarCategoria($_POST['idCategoria']);
             header(ADMIN);
+        }
+
+        function errorFormulario(){
+            $this->ABMView->errorFormulario();
         }
     }
 ?>

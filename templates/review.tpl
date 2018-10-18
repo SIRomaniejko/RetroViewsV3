@@ -2,6 +2,7 @@
 
 <div class="container center blanco rounded top ancho bottom">
   <h1>{$titulo}</h1>
+  <h2>{$categoria['nombre_categoria']}<h2>
 </div>
 <div class="container">
   <div class="contenido blanco rounded">

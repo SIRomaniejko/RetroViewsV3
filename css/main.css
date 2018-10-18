@@ -82,3 +82,38 @@ p{
   /* background-color: red; */
   opacity: 0.5;
 }
+.relative{
+  position: relative
+}
+.categoria{
+  background-color: black;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.body404{
+  background-color: cyan;
+  background-image: url("https://i.kym-cdn.com/photos/images/newsfeed/000/932/745/9cc.gif");
+  background-size: 100%;
+}
+.texto404{
+  display: block;
+  width: fit-content;
+  font-size: 10rem;
+  color: aliceblue;
+  margin: auto;
+  
+}
+
+.anchor404{
+  background-color: cyan;
+  padding: 5px;
+  border-radius: 0 20px 0 0;
+  display: block;
+  width: fit-content;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 2rem;
+}

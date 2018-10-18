@@ -12,8 +12,9 @@
               $this->smarty->assign('user', null);
             }
         }
-        function creadorArticulos($categorias){
+        function creadorArticulos($categorias, $mensaje){
             $this->smarty->assign('categorias', $categorias);
+            $this->smarty->assign('mensaje', $mensaje);
             $this->smarty->display('templates/creadorArticulo.tpl');
         }
         function editorArticulos($review, $categorias){
@@ -25,6 +26,9 @@
             $this->smarty->assign('reviews', $reviews);
             $this->smarty->assign('categorias', $categorias);
             $this->smarty->display('templates/administrador.tpl');
+        }
+        function errorFormulario(){
+            $this->smarty->display('templates/errorFormulario.tpl');
         }
     }
 ?>
