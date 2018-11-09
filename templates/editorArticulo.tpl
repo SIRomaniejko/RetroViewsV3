@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-<form class="container" action="{$root}/updateArticulo" method="post">
+<form class="container" action="updateArticulo" method="post">
     <input name="id_review" value="{$review['id_review']}" hidden>
     <div class="form-group">
         <label for="portada">Portada</label>
