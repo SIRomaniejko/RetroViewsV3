@@ -2,7 +2,7 @@
 
 
 require_once "config/ConfigApi.php";
-require_once "controller/TareasApiController.php";
+require_once "controller/ArticulosAPI.php";
 
 function parseURL($url)
 {
@@ -15,6 +15,7 @@ function parseURL($url)
 if(isset($_GET['resource'])){
     $urlData = parseURL($_GET['resource']);
     $resource = $urlData[ConfigApi::$RESOURCE]; //home
+
     if(array_key_exists($resource,ConfigApi::$RESOURCES)){
         $params = $urlData[ConfigApi::$PARAMS];
         $resource = explode('#',ConfigApi::$RESOURCES[$resource]); //Array[0] -> TareasController [1] -> BorrarTarea
