@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2018 a las 23:42:16
+-- Tiempo de generación: 09-11-2018 a las 16:46:24
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 5.6.36
 
@@ -30,10 +30,11 @@ USE `retro_views`;
 -- Estructura de tabla para la tabla `categoria`
 --
 
-CREATE TABLE `categoria` (
-  `id_categoria` int(11) NOT NULL,
-  `nombre_categoria` text COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_categoria` text COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
@@ -47,17 +48,48 @@ INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE IF NOT EXISTS `comentario` (
+  `puntaje` int(5) NOT NULL,
+  `contenido_comentario` mediumtext COLLATE utf8_spanish_ci NOT NULL,
+  `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_review` int(11) NOT NULL,
+  `user` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_comentario`),
+  KEY `id_review` (`id_review`),
+  KEY `user` (`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagen`
+--
+
+CREATE TABLE IF NOT EXISTS `imagen` (
+  `path` text COLLATE utf8_spanish_ci NOT NULL,
+  `id_review` int(11) NOT NULL,
+  KEY `imagenes_review` (`id_review`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `review`
 --
 
-CREATE TABLE `review` (
-  `id_review` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `review` (
+  `id_review` int(11) NOT NULL AUTO_INCREMENT,
   `id_categoria` int(11) NOT NULL,
   `titulo` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
   `contenido` text COLLATE utf8_spanish_ci NOT NULL,
   `resumen` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `portada` text COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `portada` text COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_review`),
+  KEY `id_categoria` (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `review`
@@ -74,60 +106,36 @@ INSERT INTO `review` (`id_review`, `id_categoria`, `titulo`, `contenido`, `resum
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `user` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `pass` varchar(60) COLLATE utf8_spanish_ci NOT NULL
+  `pass` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
+  `nivel` int(10) NOT NULL,
+  UNIQUE KEY `user` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`user`, `pass`) VALUES
-('admin', '$2y$10$xfG/hkFIlHVMgdmPjoK6veKsgcjUWfG6tVxHqZfkgHZguSdeP3hLC');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`id_categoria`);
-
---
--- Indices de la tabla `review`
---
-ALTER TABLE `review`
-  ADD PRIMARY KEY (`id_review`),
-  ADD KEY `id_categoria` (`id_categoria`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD UNIQUE KEY `user` (`user`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `review`
---
-ALTER TABLE `review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+INSERT INTO `usuario` (`user`, `pass`, `nivel`) VALUES
+('admin', '$2y$10$xfG/hkFIlHVMgdmPjoK6veKsgcjUWfG6tVxHqZfkgHZguSdeP3hLC', 2);
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `id_review` FOREIGN KEY (`id_review`) REFERENCES `review` (`id_review`),
+  ADD CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `usuario` (`user`);
+
+--
+-- Filtros para la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD CONSTRAINT `imagenes_review` FOREIGN KEY (`id_review`) REFERENCES `review` (`id_review`);
 
 --
 -- Filtros para la tabla `review`
