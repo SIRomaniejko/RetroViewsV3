@@ -1,5 +1,5 @@
 <?php
-  
+  require_once('Conexion.php');
   class ArticulosModel
   {
     private $db;
@@ -10,9 +10,7 @@
     }
 
     function Connect(){
-      return new PDO('mysql:host=localhost;'
-      .'dbname=retro_views;charset=utf8'
-      , 'root', 'root');
+      return Conexion::Connect();
     }
 
     function getReviews(){

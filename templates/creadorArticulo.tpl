@@ -2,7 +2,7 @@
 <form class="container" action="subirArticulo" method="post">
     <div class="form-group">
         <label for="portada">Portada</label>
-        <input type="text" class="form-control" id="portada" name="portada" >
+        <input type="file" class="form-control" id="portada" name="portada" multiple>
     </div>
     <div class="form-group">
         <label for="titulo">Título</label>

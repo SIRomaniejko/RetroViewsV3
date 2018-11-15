@@ -1,4 +1,5 @@
 <?php
+    require_once('Conexion.php');
     class CategoriasModel{
         private $db;
         function __construct()
@@ -7,10 +8,8 @@
         }
 
         function Connect(){
-        return new PDO('mysql:host=localhost;'
-        .'dbname=retro_views;charset=utf8'
-        , 'root', 'root');
-        }
+            return Conexion::Connect();
+          }
 
         function getCategoriaId($categoriaNombre){
             $sentencia = $this->db->prepare("SELECT id_categoria FROM categoria WHERE nombre_categoria = ? LIMIT 1");
