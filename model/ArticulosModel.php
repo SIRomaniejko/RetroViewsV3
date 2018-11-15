@@ -62,11 +62,21 @@
     function updateReview($id_review, $id_categoria, $titulo, $contenido, $resumen, $portada){
       $sentencia = $this->db->prepare("UPDATE review SET id_categoria = ?, titulo = ?, contenido = ?, resumen = ?, portada = ? WHERE id_review = ?");
       $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada, $id_review));
+      return $this->getReview($id_review);
     }
 
     function eliminarReview($titulo){
       $sentencia = $this->db->prepare("DELETE FROM review WHERE titulo = ?");
       $sentencia->execute(array($titulo));
+    }
+
+    function eliminarReviewPorId($id){
+      $fila = $this->getReview($id);
+      if($fila != null){
+        $sentencia = $this->db->prepare("DELETE FROM review WHERE id_review = ?");
+        $sentencia->execute(array($id));
+      }
+      return $fila;
     }
   }
 ?>
