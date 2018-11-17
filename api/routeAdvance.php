@@ -3,6 +3,8 @@ require_once "config/ConfigApi.php";
 require_once "controller/ArticulosAPI.php";
 require_once "controller/CategoriasAPI.php";
 require_once "controller/UsuariosAPI.php";
+require_once "controller/ComentariosAPI.php";
+
 
 define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] .":". $_SERVER['SERVER_PORT'].dirname($_SERVER["PHP_SELF"]));
 define('LOGIN', HOME."/login");

@@ -8,9 +8,6 @@ class ArticulosAPI extends Api{
     $this->model = new ArticulosModel();
   }
   function getArticulos($param = null){
-    //$headers = apache_request_headers();
-    //print_r($headers);
-    //return $this->json_response($headers["user"], 404);
     if(isset($param)){
       $id = $param[0];
       $data = $this->model->getReview($id);

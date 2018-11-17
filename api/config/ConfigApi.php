@@ -17,5 +17,7 @@ class ConfigApi{
     'usuarios#DELETE'=> 'UsuariosAPI#deleteUsuario',
     'usuarios#PUT'=> 'UsuariosAPI#updateUsuario',
     'usuarios#POST'=> 'UsuariosAPI#insertUsuario',
+
+    'comentarios#GET'=> 'ComentariosAPI#getComentarios',
   ];
 }
