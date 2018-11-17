@@ -8,9 +8,9 @@ class ArticulosAPI extends Api{
     $this->model = new ArticulosModel();
   }
   function getArticulos($param = null){
-    $headers = apache_request_headers();
-    print_r($headers);
-    return $this->json_response($headers["user"], 404);
+    //$headers = apache_request_headers();
+    //print_r($headers);
+    //return $this->json_response($headers["user"], 404);
     if(isset($param)){
       $id = $param[0];
       $data = $this->model->getReview($id);
@@ -24,11 +24,11 @@ class ArticulosAPI extends Api{
     }
   }
   function deleteArticulo($param = null){
-    if($param == null){
-      return $this->json_response(null, 404);
-    }else{
+    if(isset($param)){
       $id = $param[0];
       $data = $this->model->eliminarReviewPorId($id);
+    }else{
+      return $this->json_response(null, 406);
     }
     if(isset($data)){
       return $this->json_response($data, 200);
@@ -37,15 +37,15 @@ class ArticulosAPI extends Api{
     }
   }
   function updateArticulo($param = null){
-    if($param == null){
-      return $this->json_response(null, 404);
-    }else{
+    if(isset($param)){
       $nuevo = $this->getData();
       if(isset($nuevo->id_categoria) && isset($nuevo->titulo) && isset($nuevo->contenido) && isset($nuevo->resumen) && isset($nuevo->portada)){
         $data = $this->model->updateReview($param[0], $nuevo->id_categoria, $nuevo->titulo, $nuevo->contenido, $nuevo->resumen, $nuevo->portada);
       }else{
         return $this->json_response(null, 406);
       }
+    }else{
+      return $this->json_response(null, 404);
     }
     if(isset($data)){
       return $this->json_response($data, 200);

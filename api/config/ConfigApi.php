@@ -12,5 +12,10 @@ class ConfigApi{
     'categorias#DELETE'=> 'CategoriasAPI#deleteCategoria',
     'categorias#PUT'=> 'CategoriasAPI#updateCategoria',
     'categorias#POST'=> 'CategoriasAPI#insertCategoria',
+
+    'usuarios#GET'=> 'UsuariosAPI#getUsuarios',
+    'usuarios#DELETE'=> 'UsuariosAPI#deleteUsuario',
+    'usuarios#PUT'=> 'UsuariosAPI#updateUsuario',
+    'usuarios#POST'=> 'UsuariosAPI#insertUsuario',
   ];
 }
