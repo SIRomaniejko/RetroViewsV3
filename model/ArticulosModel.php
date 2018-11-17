@@ -45,10 +45,6 @@
 
     function subirReview($id_categoria, $titulo, $contenido, $resumen, $portada){
       $sentencia = $this->db->prepare("INSERT INTO review(id_categoria, titulo, contenido, resumen, portada) VALUES(?, ?, ?, ?, ?)");
-      echo($titulo);
-      echo($contenido);
-      echo($resumen);
-      echo($portada);
       $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada));
     }
 

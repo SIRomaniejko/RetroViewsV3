@@ -37,7 +37,7 @@ class CategoriasModel{
         return $regreso;
     }
 
-    function updateCategoria($id, $nombreCategoria){
+    function updateCategoria($id,$nombreCategoria){
         $sentencia = $this->db->prepare("UPDATE categoria SET nombre_categoria = ? WHERE id_categoria = ?");
         $sentencia->execute(array($nombreCategoria, $id));
     }
