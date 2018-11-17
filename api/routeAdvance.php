@@ -1,8 +1,7 @@
 <?php
-
-
 require_once "config/ConfigApi.php";
 require_once "controller/ArticulosAPI.php";
+require_once "controller/CategoriasAPI.php";
 
 function parseURL($url)
 {

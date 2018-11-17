@@ -14,7 +14,6 @@
     }
 
     function getReviews(){
-
       $sentencia = $this->db->prepare("SELECT * FROM review ORDER BY id_review DESC");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
