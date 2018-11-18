@@ -19,5 +19,8 @@ class ConfigApi{
     'usuarios#POST'=> 'UsuariosAPI#insertUsuario',
 
     'comentarios#GET'=> 'ComentariosAPI#getComentarios',
+    'comentarios#POST'=> 'ComentariosAPI#insertComentario',
+
+    //imagen
   ];
 }

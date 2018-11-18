@@ -52,7 +52,11 @@ class ArticulosAPI extends Api{
   }
   function insertArticulo($param = null){
     $json = $this->getData();
-    $data = $this->model->subirReview($json->id_categoria,$json->titulo,$json->contenido,$json->resumen,$json->portada);
+    if(isset($json->id_categoria) && isset($json->titulo) && isset($json->contenido) && isset($json->resumen) && isset($json->portada)){
+        $data = $this->model->subirReview($json->id_categoria,$json->titulo,$json->contenido,$json->resumen,$json->portada);
+    }else{
+      return $this->json_response(null, 406);
+    }
     if(isset($data)){
       return $this->json_response($data, 200);
     }else{

@@ -33,13 +33,19 @@ class ArticulosModel{
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-  function subirReview($id_categoria, $titulo, $contenido, $resumen, $portada){
+  function subirReview($id_categoria,$titulo,$contenido,$resumen,$portada){
     $sentencia = $this->db->prepare(
       "INSERT INTO review(id_categoria, titulo, contenido, resumen, portada) VALUES(?, ?, ?, ?, ?)");
     $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada));
+    return $this->getUltimaReview();
+  }
+  function getUltimaReview(){
+    $sentencia = $this->db->prepare("SELECT * FROM review ORDER BY id_review DESC LIMIT 1");
+    $sentencia->execute();
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
   function getTitulosMenosElDeId($id_review){
-    $sentencia = $this->db->prepare("SELECT titulo FROM review WHERE id_review != ?");
+    $sentencia = $this->db->prepare("SELECT * FROM review WHERE id_review != ?");
     $sentencia->execute(array($id_review));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

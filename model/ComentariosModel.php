@@ -11,7 +11,7 @@ class ComentariosModel{
 	function insertComentario($review,$user,$puntaje,$contenido){
     $sentencia = $this->db->prepare(
       "INSERT INTO comentario(id_review,user,puntaje,contenido_comentario) VALUES(?,?,?,?)");
-    $sentencia->execute(array($review,$user,$puntaje,$contenido));
+		$sentencia->execute(array($review,$user,$puntaje,$contenido));
 	}
 	function getComentario($id){
 		$sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id_comentario = ?");
