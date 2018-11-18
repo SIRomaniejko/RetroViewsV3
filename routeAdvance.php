@@ -13,7 +13,6 @@ require_once "controller/ABMController.php";
 require_once "controller/UsuariosController.php";
 require_once "controller/LoginController.php";
 require_once "controller/SecuredController.php";
-require_once "controller/DummyImagenesController.php";
 
 function parseURL($url)
 {

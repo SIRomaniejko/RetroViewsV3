@@ -1,9 +1,11 @@
 <?php
-
-
 require_once "config/ConfigApi.php";
 require_once "controller/ArticulosAPI.php";
 require_once "controller/ImagenesAPI.php";
+require_once "controller/CategoriasAPI.php";
+require_once "controller/UsuariosAPI.php";
+require_once "controller/ComentariosAPI.php";
+
 function parseURL($url)
 {
   $urlExploded = explode('/', $url);
