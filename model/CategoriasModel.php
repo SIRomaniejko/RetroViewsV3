@@ -9,7 +9,7 @@
 
         function Connect(){
             return Conexion::Connect();
-          }
+        }
 
         function getCategoriaId($categoriaNombre){
             $sentencia = $this->db->prepare("SELECT id_categoria FROM categoria WHERE nombre_categoria = ? LIMIT 1");

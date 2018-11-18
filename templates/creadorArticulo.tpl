@@ -1,8 +1,8 @@
 {include file="header.tpl"}
-<form class="container" action="subirArticulo" method="post">
+<form class="container" action="subirArticulo" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="portada">Portada</label>
-        <input type="file" class="form-control" id="portada" name="portada" multiple>
+        <label for="imagenes">imagenes</label>
+        <input type="file" name="imagenes[]" multiple>
     </div>
     <div class="form-group">
         <label for="titulo">Título</label>

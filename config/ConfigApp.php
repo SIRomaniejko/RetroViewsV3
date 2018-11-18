@@ -28,6 +28,9 @@ class ConfigApp
       'editarArticulo' => 'ABMController#editorArticulos',
       'subirArticulo' => 'ABMController#subirArticulo',
       'updateArticulo' => 'ABMController#updateArticulo',
+
+      'testImagen' => 'DummyImagenesController#posteadorImagenes',
+      'postImagenTest' => 'DummyImagenesController#postImagenTest',
     ];
 
 }

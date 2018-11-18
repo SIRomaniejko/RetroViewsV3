@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="container bg-warning col-sm- mt-1 pl-0 rounded position-relative ">
                         <a href="review/{$review['tituloConBarra']}" class="limpiaAnchor">
-                            <img src="{$review['portada']}" class="rounded float-left img-thumbnail mr-3 ultrachica" alt="portada">
+                            <img src="{$review['imagenes'][0]["direccion"]}" class="rounded float-left img-thumbnail mr-3 ultrachica" alt="portada">
                             <h1 class="text-truncate">{$review['titulo']}</h3>
                             <div class="categoria">
                                 {foreach from=$categorias item=categoria}

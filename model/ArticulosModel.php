@@ -44,13 +44,10 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function subirReview($id_categoria, $titulo, $contenido, $resumen, $portada){
-      $sentencia = $this->db->prepare("INSERT INTO review(id_categoria, titulo, contenido, resumen, portada) VALUES(?, ?, ?, ?, ?)");
-      echo($titulo);
-      echo($contenido);
-      echo($resumen);
-      echo($portada);
-      $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada));
+    function subirReview($id_categoria, $titulo, $contenido, $resumen){
+      $sentencia = $this->db->prepare("INSERT INTO review(id_categoria, titulo, contenido, resumen) VALUES(?, ?, ?, ?)");
+      $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen));
+      return $this->getReviewPorTitulo($titulo);
     }
 
     function getTitulosMenosElDeId($id_review){
@@ -59,14 +56,19 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function updateReview($id_review, $id_categoria, $titulo, $contenido, $resumen, $portada){
-      $sentencia = $this->db->prepare("UPDATE review SET id_categoria = ?, titulo = ?, contenido = ?, resumen = ?, portada = ? WHERE id_review = ?");
-      $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $portada, $id_review));
+    function updateReview($id_review, $id_categoria, $titulo, $contenido, $resumen){
+      $sentencia = $this->db->prepare("UPDATE review SET id_categoria = ?, titulo = ?, contenido = ?, resumen = ? WHERE id_review = ?");
+      $sentencia->execute(array($id_categoria, $titulo, $contenido, $resumen, $id_review));
+      return $this->getReview($id_review);
     }
 
     function eliminarReview($titulo){
       $sentencia = $this->db->prepare("DELETE FROM review WHERE titulo = ?");
       $sentencia->execute(array($titulo));
+    }
+
+    function lastInsertId(){
+      return $this->db->lastInsertId();
     }
   }
 ?>

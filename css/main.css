@@ -124,3 +124,37 @@ p{
   /* color: black; */
   /* text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkblue; */
 }
+.imagenCarrusel{
+  display: block;
+  height: 300px;
+}
+.contenedorCarrusel{
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+}
+.contenedorEditarImagen{
+  display: inline-block;
+  position: relative;
+  height:200px;
+  width: 200px;
+  overflow: hidden;
+}
+.imagenEditor{
+  display: block;
+  height: 200px;
+}
+.containerEditor{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height:200px;
+  width: 80%;
+  margin: auto;
+}
+
+.botonBorrarImg{
+  position: absolute;
+  top: 0;
+  right: 0;
+}

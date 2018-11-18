@@ -5,16 +5,20 @@
         private $ArticulosModel;
         private $ArticulosView;
         private $CategoriasModel;
+        private $ImagenesModel;
+
         function __construct() {
             $this->ArticulosModel = new ArticulosModel();
             $this->ArticulosView = new ArticulosView();
             $this->CategoriasModel = new CategoriasModel();
+            $this->ImagenesModel = new ImagenesModel();
         }
         function home(){
             $reviews = $this->ArticulosModel->getReviews();
             $categorias = $this->CategoriasModel->getCategorias();
             foreach($reviews as &$review){
                 $review['tituloConBarra'] = str_replace(' ', '-', $review['titulo']);
+                $review['imagenes'] = $this->ImagenesModel->getImagenes($review['id_review']);
             }
             $this->ArticulosView->home($reviews, $categorias);
         }
@@ -22,7 +26,8 @@
             $parametros[0] = str_replace('-', ' ', $parametros[0]);
             $review = $this->ArticulosModel->getReviewPorTitulo($parametros[0]);
             $categoria = $this->CategoriasModel->getCategoria($review['id_categoria']);
-            $this->ArticulosView->reviewCompleta($review, $categoria);
+            $imagenes = $this->ImagenesModel->getImagenes($review['id_review']);
+            $this->ArticulosView->reviewCompleta($review, $categoria, $imagenes);
         }
 
         function reviewsCategoria($parametros){
@@ -32,6 +37,7 @@
             $reviews = $this->ArticulosModel->getReviewsPorIdCategoria($idCategoria);
             //print_r($reviews[3]);
             foreach($reviews as &$review){
+                $review['imagenes'] = $this->ImagenesModel->getImagenes($review['id_review']);
                 $review['tituloConBarra'] = str_replace(' ', '-', $review['titulo']);
             }
             $this->ArticulosView->home($reviews, $categorias);

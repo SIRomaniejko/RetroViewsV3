@@ -1,9 +1,19 @@
 {include file="header.tpl"}
-<form class="container" action="updateArticulo" method="post">
+    <div class="containerEditor blanco">
+        <div class="imagenesEditorTest">
+        {foreach from=$imagenes item=imagen}
+        <div class="contenedorEditarImagen">
+            <img src="{$imagen['direccion']}" class="imagenEditor">
+            <button js-id="{$imagen['id_imagen']}"class="botonBorrarImg"><img src="https://cdn2.iconfinder.com/data/icons/cleaning-19/30/30x30-10-512.png" class="boton"</button>
+        </div>
+        {/foreach}
+        </div>
+    </div>
+<form class="container" action="updateArticulo" method="post" enctype="multipart/form-data">
     <input name="id_review" value="{$review['id_review']}" hidden>
     <div class="form-group">
-        <label for="portada">Portada</label>
-        <input type="text" class="form-control" id="portada" name="portada" value="{$review['portada']}">
+        <label for="imagenes">imagenes</label>
+        <input type="file" name="imagenes[]" multiple>
     </div>
     <div class="form-group">
         <label for="titulo">Título</label>
@@ -29,4 +39,5 @@
     </div>
     <button type="submit" class="btn btn-warning container bottom">Submit</button>
 </form>
+<script src="js/editor.js"></script>
 {include file="footer.tpl"}
