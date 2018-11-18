@@ -24,5 +24,7 @@ class ConfigApi{
       'comentarios#GET'=> 'ComentariosAPI#getComentarios',
       'comentarios#POST'=> 'ComentariosAPI#insertComentario',
 
+      'test#GET' => 'SecuredAPI#getNivel',
+      'test2#GET' => 'SecuredAPI#getSessionData',
   ];
 }

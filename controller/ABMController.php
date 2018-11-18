@@ -11,7 +11,7 @@
         private $ImagenesModel;
         function __construct() {
             //clase segura
-            parent::__construct();
+            parent::__construct(2);
             $this->ArticulosModel = new ArticulosModel();
             $this->ABMView = new ABMView();
             $this->CategoriasModel = new CategoriasModel();

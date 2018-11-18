@@ -27,7 +27,9 @@ class LoginController{
       if(isset($dbUser)){
           if (password_verify($pass, $dbUser["pass"])){
               session_start();
-              $_SESSION["User"] = $user;
+              $_SESSION["user"] = $user;
+              $_SESSION["pass"] = $pass;
+              $_SESSION["nivel"] = $dbUser['nivel'];
               header(HOME);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
@@ -47,7 +49,7 @@ class LoginController{
       $nivel = 1;
       $this->model->insertUsuario($user,$hash,$nivel);
       session_start();
-      $_SESSION["User"] = $user;
+      $this->verificarLogin();
       header(HOME);
     }
   }

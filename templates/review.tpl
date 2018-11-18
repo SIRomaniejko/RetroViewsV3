@@ -18,5 +18,5 @@
     <p class="top">{$contenido}</p>
   </div>
 </div>
-
+<script src="js/test.js"> </script>
 {include file="footer.tpl"}

@@ -1,17 +1,11 @@
 <?php
     require_once('libs/Smarty.class.php');
-    class CategoriasView
+    require_once('View.php');
+
+    class CategoriasView extends View
     {
-        private $smarty;
         function __construct() {
-            $this->smarty = new Smarty();
-            $this->smarty->assign('root', ROOT);
-            session_start();
-            if(isset($_SESSION['User'])){
-              $this->smarty->assign('user', $_SESSION['User']);
-            }else{
-              $this->smarty->assign('user', null);
-            }
+            parent::__construct();
         }
         function test($categoria){
             $this->smarty->assign('categoria', $categoria);

@@ -1,16 +1,10 @@
 <?php
     require_once('libs/Smarty.class.php');
-    class ABMView
+    require_once('View.php');
+    class ABMView extends View
     {
-        private $smarty;
         function __construct() {
-            $this->smarty = new Smarty();
-            $this->smarty->assign('root', ROOT);
-            if(isset($_SESSION['User'])){
-              $this->smarty->assign('user', $_SESSION['User']);
-            }else{
-              $this->smarty->assign('user', null);
-            }
+            parent::__construct();
         }
         function creadorArticulos($categorias){
             $this->smarty->assign('categorias', $categorias);

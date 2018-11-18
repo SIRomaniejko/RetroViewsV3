@@ -5,6 +5,7 @@ require_once "controller/ImagenesAPI.php";
 require_once "controller/CategoriasAPI.php";
 require_once "controller/UsuariosAPI.php";
 require_once "controller/ComentariosAPI.php";
+require_once "controller/SecuredAPI.php";
 
 function parseURL($url)
 {

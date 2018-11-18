@@ -23,12 +23,13 @@
                 <li class="nav-item bold">
                   <a class="nav-link" href="categorias">Categorías</a>
                 </li>
-
-            {if isset($user)}
+            {if isset($nivel) && $nivel >= 2}
               <li class="nav-item bold">
                 <a class="nav-link bold" href="administrador">Administrar</a>
               </li>
+            {/if}
             </ul>
+            {if isset($nivel) && $nivel >= 1}
               <form action="logout" method="post">
                 <button type="submit" class="btn btn-danger">Logout</button>
               </form>
