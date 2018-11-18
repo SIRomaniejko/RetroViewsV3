@@ -36,7 +36,7 @@ class CategoriasAPI extends Api{
   function updateCategoria($param = null){
     if(isset($param)){
       $nuevo = $this->getData();
-      if(isset($nuevo->id_categoria)&&isset($nuevo->nombre_categoria)){
+      if(isset($nuevo->nombre_categoria)){
         $data = $this->model->updateCategoria($param[0],$nuevo->nombre_categoria);
       }else{
         return $this->json_response(null, 406);

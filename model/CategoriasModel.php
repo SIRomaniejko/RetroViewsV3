@@ -35,15 +35,16 @@ class CategoriasModel{
     function updateCategoria($id,$nombreCategoria){
         $sentencia = $this->db->prepare("UPDATE categoria SET nombre_categoria = ? WHERE id_categoria = ?");
         $sentencia->execute(array($nombreCategoria, $id));
+        return $this->getCategoria($this->getIdCategoria($nombreCategoria));
     }
     function crearCategoria($nombreCategoria){
       $sentencia = $this->db->prepare("INSERT INTO categoria(nombre_categoria) VALUES(?)");
       $sentencia->execute(array($nombreCategoria));
       return $this->getCategoria($this->getIdCategoria($nombreCategoria));
     }
-    function getLastInsertId(){
-        return $this->db->getLastInsertId();
-    }
+	function getLastInsertId(){
+		return $this->db->lastInsertId();
+	}
     function eliminarCategoria($idCategoria){
         $nuevo = $this->getCategoria($idCategoria);
         if($nuevo != null){

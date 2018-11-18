@@ -36,8 +36,8 @@ class ArticulosAPI extends Api{
   function updateArticulo($param = null){
     if(isset($param)){
       $nuevo = $this->getData();
-      if(isset($nuevo->id_categoria) && isset($nuevo->titulo) && isset($nuevo->contenido) && isset($nuevo->resumen) && isset($nuevo->portada)){
-        $data = $this->model->updateReview($param[0], $nuevo->id_categoria, $nuevo->titulo, $nuevo->contenido, $nuevo->resumen, $nuevo->portada);
+      if(isset($nuevo->id_categoria) && isset($nuevo->titulo) && isset($nuevo->contenido) && isset($nuevo->resumen)){
+        $data = $this->model->updateReview($param[0], $nuevo->id_categoria, $nuevo->titulo, $nuevo->contenido, $nuevo->resumen);
       }else{
         return $this->json_response(null, 406);
       }
@@ -52,8 +52,8 @@ class ArticulosAPI extends Api{
   }
   function insertArticulo($param = null){
     $json = $this->getData();
-    if(isset($json->id_categoria) && isset($json->titulo) && isset($json->contenido) && isset($json->resumen) && isset($json->portada)){
-        $data = $this->model->subirReview($json->id_categoria,$json->titulo,$json->contenido,$json->resumen,$json->portada);
+    if(isset($json->id_categoria) && isset($json->titulo) && isset($json->contenido) && isset($json->resumen)){
+        $data = $this->model->subirReview($json->id_categoria,$json->titulo,$json->contenido,$json->resumen);
     }else{
       return $this->json_response(null, 406);
     }

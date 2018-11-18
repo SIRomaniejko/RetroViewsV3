@@ -10,9 +10,9 @@ class ComentariosAPI extends Api{
 	function getComentarios($param = null){
 		if(isset($param)){
 			$id = $param[0];
-			$data = $this->model->getComentarios($id);
+			$data = $this->model->getComentario($id);
 		}else{
-			return $this->json_response(null, 406);
+			$data = $this->model->getComentarios();
 		}
     if(isset($data)){
       return $this->json_response($data, 200);
