@@ -1,13 +1,12 @@
 <?php
-    require_once ('libs/Smarty.class.php');
-    class UsuariosView{
-        private $smarty;
-        function __construct() {
-            $this->smarty = new Smarty();
-            $this->smarty->assign('root', ROOT);
-        }
-        function login(){
-            $this->smarty->display('templates/login.tpl');
-        }
+require_once 'libs/Smarty.class.php';
+require_once 'View.php';
+class UsuariosView extends View{
+    function __construct() {
+        parent::__construct();
     }
-?>
+    function mostrarUsuarios($usuarios){
+        $this->smarty->assign('usuarios',$usuarios);
+        $this->smarty->display('templates/usuarios.tpl');
+    }
+}

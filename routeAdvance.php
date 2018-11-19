@@ -4,6 +4,7 @@ define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] .":". $_SERVER['SERVE
 define('ROOT',  dirname($_SERVER["PHP_SELF"]));
 define('LOGIN', HOME."/login");
 define('ADMIN', HOME."/administrador");
+define('USERS', HOME."/usuarios");
 define('ERRORTITULO', HOME."/errorFormulario");
 define('404', HOME."/404");
 require_once "config/ConfigApp.php";

@@ -17,6 +17,10 @@ class ConfigApp
       'verificarLogin' => 'LoginController#verificarLogin',
       'registrarse' => 'LoginController#registrarse',
       'registrarUsuario' => 'LoginController#registrarUsuario',
+
+      'usuarios' => 'UsuariosController#getUsuarios',
+      'eliminarUsuario' => 'UsuariosController#eliminarUsuario',
+      'editarUsuario' => 'UsuariosController#editarUsuario',
       
       'administrador' => 'ABMController#administrador',
       'eliminarArticulo' => 'ABMController#eliminarArticulo',

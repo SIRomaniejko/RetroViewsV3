@@ -27,6 +27,9 @@
               <li class="nav-item bold">
                 <a class="nav-link bold" href="administrador">Administrar</a>
               </li>
+              <li class="nav-item bold">
+                <a class="nav-link bold" href="usuarios">Usuarios</a>
+              </li>
             {/if}
             </ul>
             {if isset($nivel) && $nivel >= 1}
