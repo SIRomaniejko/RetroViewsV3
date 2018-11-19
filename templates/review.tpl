@@ -18,5 +18,7 @@
     <p class="top">{$contenido}</p>
   </div>
 </div>
-<script src="js/test.js"> </script>
+<div class="container contenido mt-3 blanco rounded js-comments-container">
+
+</div>
 {include file="footer.tpl"}

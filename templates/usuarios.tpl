@@ -20,7 +20,7 @@
 							</form>
 							<form action="editarUsuario" method="post">
 									<button class="invisiblePropio float-left right" type="submit"><img class="boton" src="https://cdn0.iconfinder.com/data/icons/pixon-1/24/arrow_up_upload-512.png"></button>
-									<input type="number" name="nivel" placeholder="Cambiar nivel">
+									<input type="number" name="nivel" value="{$user['nivel']}" placeholder="Cambiar nivel">
 									<input hidden name="user" value="{$user['user']}">
 							</form>
 						</td>
