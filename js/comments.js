@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+"use strict";
+document.querySelector('#submit').addEventListener('click',getData);
+
+>>>>>>> 99a9e8e38d31fd177b65da0595ec8063e1b381de
 // fetch("http://localhost/proyectos/RetroViewsV3/api/test2").then(resp =>{
 //     resp.json().then(objeto=>{
 //         console.log(objeto);
