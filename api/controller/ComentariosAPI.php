@@ -14,6 +14,9 @@ class ComentariosAPI extends Api{
 		}else{
 			$data = $this->model->getComentarios();
 		}
+		if(isset($_GET['id_review'])){
+      $data = $this->filtroGet($data, 'id_review');
+    }
     if(isset($data)){
       return $this->json_response($data, 200);
     }else{
