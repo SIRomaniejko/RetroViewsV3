@@ -1,14 +1,10 @@
 <?php
-require_once('Conexion.php');
-  class ImagenesModel{
+require_once('Model.php');
+  class ImagenesModel extends Model{
     private $db;
 
     function __construct(){
       $this->db = $this->Connect();
-    }
-
-    function Connect(){
-        return Conexion::Connect();
     }
 
     function getImagenes($id_review){

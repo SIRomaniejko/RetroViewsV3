@@ -1,12 +1,9 @@
 <?php
-require_once "Conexion.php";
-class UsuariosModel{
+require_once "Model.php";
+class UsuariosModel extends Model{
   private $db;
   function __construct(){
     $this->db = $this->Connect();
-  }
-  function Connect(){
-    return Conexion::Connect();
   }
   function getUsuarios(){
     $sentencia = $this->db->prepare("SELECT * FROM usuario");

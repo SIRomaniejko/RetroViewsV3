@@ -1,12 +1,9 @@
 <?php
-require_once 'Conexion.php';
-class CategoriasModel{
+require_once 'Model.php';
+class CategoriasModel extends Model{
     private $db;
     function __construct(){
         $this->db = $this->Connect();
-    }
-    function Connect(){
-        return Conexion::Connect();
     }
     function getCategoriaId($categoriaNombre){
         $sentencia = $this->db->prepare("SELECT id_categoria FROM categoria WHERE nombre_categoria = ? LIMIT 1");

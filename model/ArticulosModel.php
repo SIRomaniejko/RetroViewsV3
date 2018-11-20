@@ -1,12 +1,9 @@
 <?php
-require_once "Conexion.php";
-class ArticulosModel{
+require_once "Model.php";
+class ArticulosModel extends Model{
   private $db;
   function __construct(){
     $this->db = $this->Connect();
-  }
-  function Connect(){
-    return Conexion::Connect();
   }
   function getReviews(){
     $sentencia = $this->db->prepare("SELECT * FROM review ORDER BY id_review DESC");

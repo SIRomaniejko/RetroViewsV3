@@ -1,12 +1,9 @@
 <?php
-require_once "Conexion.php";
-class ComentariosModel{
+require_once "Model.php";
+class ComentariosModel extends Model{
 	private $db;
 	function __construct(){
 		$this->db = $this->Connect();
-	}
-	function Connect(){
-		return Conexion::Connect();
 	}
 	function insertComentario($review,$user,$puntaje,$contenido){
     $sentencia = $this->db->prepare(
