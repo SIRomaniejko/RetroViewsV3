@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+<div class="top">
     <div class="containerEditor blanco">
         <div class="imagenesEditorTest">
         {foreach from=$imagenes item=imagen}
@@ -9,23 +10,35 @@
         {/foreach}
         </div>
     </div>
+</div>
 <form class="container" action="updateArticulo" method="post" enctype="multipart/form-data">
     <input name="id_review" value="{$review['id_review']}" hidden>
-    <div class="form-group">
-        <label for="imagenes">imagenes</label>
-        <input type="file" name="imagenes[]" multiple>
+    <div class="input-group mb-3 top">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Imagenes</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" name="imagenes[]" class="custom-file-input">
+            <label class="custom-file-label">Elegir archivos</label>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="titulo">Título</label>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Titulo</span>
+        </div>
         <input type="text" class="form-control" id="titulo" name="titulo"value="{$review['titulo']}" >
     </div>
-    <div class="form-group">
-        <label for="resumen">Resumen</label>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Resumen</span>
+        </div>
         <input type="text" class="form-control" id="resumen" name="resumen" value="{$review['resumen']}">
     </div>
-    <div class="form-group">
-        <label for="contenido">Contenido</label>
-        <textarea class="form-control" id="contenido" rows="5" name="contenido">{$review['contenido']}</textarea>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Contenido</span>
+        </div>
+        <textarea class="form-control" id="contenido" rows="2" name="contenido">{$review['contenido']}</textarea>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
