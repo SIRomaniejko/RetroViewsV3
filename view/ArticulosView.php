@@ -23,5 +23,10 @@
         function notFound(){
             $this->smarty->display('templates/404.tpl');
         }
+        function categoria($reviews, $categoria){
+            $this->smarty->assign('reviews', $reviews);
+            $this->smarty->assign('categoria', $categoria);
+            $this->smarty->display('templates/categoria.tpl');
+        }
     }
 ?>

@@ -33,14 +33,13 @@
         function reviewsCategoria($parametros){
             $categoria = str_replace('-', ' ', $parametros[0]);
             $idCategoria = $this->CategoriasModel->getIdCategoria($categoria);
-            $categorias = $this->CategoriasModel->getCategorias();
+            $categoria = $this->CategoriasModel->getCategoria($idCategoria);
             $reviews = $this->ArticulosModel->getReviewsPorIdCategoria($idCategoria);
-            //print_r($reviews[3]);
             foreach($reviews as &$review){
                 $review['imagenes'] = $this->ImagenesModel->getImagenes($review['id_review']);
                 $review['tituloConBarra'] = str_replace(' ', '-', $review['titulo']);
             }
-            $this->ArticulosView->home($reviews, $categorias);
+            $this->ArticulosView->categoria($reviews, $categoria);
         }
 
         function notFound(){
