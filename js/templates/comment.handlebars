@@ -1,7 +1,9 @@
 {{#each comentarios}}
-    <div class="comment bg-success">
-        <h2>{{user}}</h2>
-        <p>{{contenido_comentario}}</p>
-        <p>{{puntaje}}</p>
+    <div class="comment bg-success bottom rounded">
+        <div class="left">
+            <h5>{{contenido_comentario}}</h5>
+            <p>Puntaje: {{puntaje}}</p>
+            <p>Usuario: {{user}}</p>
+        </div>
     </div>
 {{/each}}

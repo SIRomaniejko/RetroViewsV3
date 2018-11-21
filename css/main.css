@@ -64,6 +64,10 @@ p{
   width: 100%;
   padding-bottom: 1%;
 }
+.pad{
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .sectorAdmin{
   margin-top: 20px;
   border-radius: 20px;

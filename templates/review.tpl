@@ -18,7 +18,7 @@
     <p class="top">{$contenido}</p>
   </div>
 </div>
-<div class="container contenido mt-3 blanco rounded js-comments-container" idReview="{$id_review}">
-  <button class="js-comment-loader">cargar Comentarios</button>
+<div class="container contenido mt-3 blanco rounded js-comments-container bottom" idReview="{$id_review}">
+  <button class="js-comment-loader btn btn-primary top bottom center ancho">Cargar comentarios</button>
 </div>
 {include file="footer.tpl"}
