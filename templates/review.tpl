@@ -22,7 +22,38 @@
         </div>
     </div>
 </div>
+<div class="top bottom js-contenedorCreador hiddenRonpa container">
+        <div class="contenido blanco rounded creadorComentarios">
+            <div class="top left">
+                    <input name="user" value="{$user}" class="d-none" id="user">
+                    <input name="id_review" value="{$id_review}" class="d-none" id="id_review">
+                    <div class="float-left right">
+                        <button class="btn btn-success" id="submit">
+                    </div>
+                    <div class="float-left bottom right">
+                        <div class="float-left">
+                            <label class="input-group-text">Estrellas</label>
+                        </div>
+                        <div class="float-left">
+                            <select class="custom-select float-left" id="puntaje" name="puntaje">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="textarea_feedback"></div>
+                    <div class="float-none bottom right">
+                        <input type="text" class="form-control" id="contenido_comentario" name="contenido_comentario" maxlength="150" placeholder="Escribe un comentario">
+                    </div>
+            </div>
+        </div>
+    </div> 
 <div class="container contenido mt-3 blanco rounded js-comments-container bottom" idReview="{$id_review}">
-  <button class="js-comment-loader btn btn-primary top bottom center ancho">Cargar comentarios</button>
+    <button class="js-comment-loader btn btn-primary top bottom center ancho">Cargar comentarios</button>
+    
 </div>
+<script src="js/contadorComentario.js"></script>
 {include file="footer.tpl"}

@@ -25,13 +25,14 @@ class ComentariosAPI extends Api{
 	}
 	function insertComentario($param = null){
 		$json = $this->getData();
-		if(isset($json->id_review) && isset($json->user) && isset($json->puntaje) && isset($json->contenido_comentario)){
-			$data = $this->model->insertComentario($json->id_review,$json->user,$json->puntaje,$json->contenido_comentario);
-		}
-		if(isset($data)){
-      return $this->json_response($data, 200);
-    }else{
-      return $this->json_response(null, 404);
-    }
+		return $json->user;
+		// if(isset($json->id_review) && isset($json->user) && isset($json->puntaje) && isset($json->contenido_comentario)){
+		// 	$data = $this->model->insertComentario($json->id_review,$json->user,$json->puntaje,$json->contenido_comentario);
+		// }
+		// if(isset($data)){
+    //   return $this->json_response($data, 200);
+    // }else{
+    //   return $this->json_response(null, 404);
+    // }
 	}
 }
