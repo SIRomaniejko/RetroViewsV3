@@ -38,7 +38,11 @@ class Api{
           ),200);
       }
       else{
-          return $this->json_response(null, 404);
+        return $this->json_response(array(
+          'user' => null,
+          'pass' => null,
+          'nivel' => 0
+        ),200);
       }
   }
 
