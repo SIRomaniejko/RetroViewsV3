@@ -18,7 +18,7 @@
             <span class="input-group-text">Imagenes</span>
         </div>
         <div class="custom-file">
-            <input type="file" name="imagenes[]" class="custom-file-input">
+            <input type="file" name="imagenes[]" multiple class="custom-file-input">
             <label class="custom-file-label">Elegir archivos</label>
         </div>
     </div>

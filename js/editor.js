@@ -5,10 +5,15 @@ botones.forEach(boton => {
     })
 });
 function borrarImagen(idImagen, contenedor){
+
     fetch("http://localhost/proyectos/RetroViewsV3/api/imagenes/" + idImagen, 
     {method: 'DELETE',
     mode: 'cors',
-    cache: 'default' }
+    cache: 'default',
+    headers: {'Content-Type': 'application/json',
+    'user': user,
+    'pass': pass},
+    }
     ).then(resp =>{
         if(resp.ok){
             contenedor.remove();

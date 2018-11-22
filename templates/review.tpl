@@ -21,36 +21,50 @@
   </div>
 </div>
 <div class="top bottom js-contenedorCreador hiddenRonpa container">
-        <div class="contenido blanco rounded creadorComentarios">
-            <div class="top left">
-                    <input name="user" value="{$user}" class="d-none" id="user">
-                    <input name="id_review" value="{$id_review}" class="d-none" id="id_review">
-                    <div class="float-left right">
-                        <button class="btn btn-success" id="submit">Enviar</button>
+    <div class="contenido blanco rounded creadorComentarios">
+        <div class="top left">
+                <input name="user" value="{$user}" class="d-none" id="user">
+                <input name="id_review" value="{$id_review}" class="d-none" id="id_review">
+                <div class="float-left right">
+                    <button class="btn btn-success" id="submit">Enviar</button>
+                </div>
+                <div class="float-left bottom right">
+                    <div class="float-left">
+                        <label class="input-group-text">Estrellas</label>
                     </div>
-                    <div class="float-left bottom right">
-                        <div class="float-left">
-                            <label class="input-group-text">Estrellas</label>
-                        </div>
-                        <div class="float-left">
-                            <select class="custom-select float-left" id="puntaje" name="puntaje">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            </select>
-                        </div>
+                    <div class="float-left">
+                        <select class="custom-select float-left" id="puntaje" name="puntaje">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
                     </div>
-                    <div id="textarea_feedback"></div>
-                    <div class="float-none bottom right">
-                        <input type="text" class="form-control" id="contenido_comentario" name="contenido_comentario" maxlength="150" placeholder="Escribe un comentario">
-                    </div>
-            </div>
+                </div>
+                <div id="textarea_feedback"></div>
+                <div class="float-none bottom right">
+                    <input type="text" class="form-control" id="contenido_comentario" name="contenido_comentario" maxlength="150" placeholder="Escribe un comentario">
+                </div>
         </div>
-    </div> 
+        
+    </div>
+    <div class="container mt-2 rounded blanco pb-2 pt-1">
+        <h5 class="center"> Orden </h5>
+        <select class="custom-select w-50" id="js-orden">
+            <option selected value="id_comentario">fecha de publicacion</option>
+            <option value="puntaje">puntaje</option>
+        </select>
+        <select class="custom-select w-50 float-right" id="js-tipoOrden">
+            <option selected value="ascen">ascendente</option>
+            <option value="desc">descendente</option>
+        </select>
+    </div>
+    
+</div> 
 <div class="container contenido mt-3 blanco rounded js-comments-container bottom" idReview="{$id_review}">
     <button class="js-comment-loader btn btn-primary top bottom center ancho">Cargar comentarios</button>
+    
     
 </div>
 

@@ -7,6 +7,10 @@ fetch("api/getSessionData").then(response =>{
         pass = objeto.pass;
     })
 })
+let orden = document.querySelector("#js-orden");
+let tipoOrden = document.querySelector("#js-tipoOrden");
+
+
 let boton = document.querySelector(".js-comment-loader");
 let container = document.querySelector(".js-comments-container");
 let templateCreador;
@@ -57,7 +61,7 @@ function actualizacionAutomatica(){
 
 
 function getComments(){
-    fetch("api/comentarios?id_review="+ container.getAttribute("idReview")).then(resp =>{
+    fetch("api/comentarios?id_review="+ container.getAttribute("idReview")+"&orden=" + orden.value + "&tipo_orden=" + tipoOrden.value).then(resp =>{
         resp.json().then(objeto=>{
             showComments(objeto);
         })
