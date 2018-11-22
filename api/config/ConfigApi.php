@@ -23,6 +23,7 @@ class ConfigApi{
 
       'comentarios#GET'=> 'ComentariosAPI#getComentarios',
       'comentarios#POST'=> 'ComentariosAPI#insertComentario',
+      'comentarios#DELETE'=> 'ComentariosAPI#deleteComentario',
 
       'getSessionData#GET' => 'SecuredAPI#getSessionData',
   ];

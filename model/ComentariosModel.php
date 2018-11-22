@@ -25,10 +25,11 @@ class ComentariosModel extends Model{
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
 	}
 	function deleteComentario($id){
-		$sentencia = $this->getComentario($id);
-		if(isset($sentencia)){
+		$dato = $this->getComentario($id);
+		if(isset($dato)){
 			$sentencia = $this->db->prepare("DELETE FROM comentario WHERE id_comentario = ?");
 			$sentencia->execute(array($id));
 		}
+		return $dato;
 	}
 }

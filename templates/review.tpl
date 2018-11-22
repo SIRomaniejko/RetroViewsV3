@@ -26,7 +26,7 @@
                     <input name="user" value="{$user}" class="d-none" id="user">
                     <input name="id_review" value="{$id_review}" class="d-none" id="id_review">
                     <div class="float-left right">
-                        <button class="btn btn-success" id="submit">
+                        <button class="btn btn-success" id="submit">Enviar</button>
                     </div>
                     <div class="float-left bottom right">
                         <div class="float-left">
@@ -53,7 +53,7 @@
     <button class="js-comment-loader btn btn-primary top bottom center ancho">Cargar comentarios</button>
     
 </div>
-<script src="js/contadorComentario.js"></script>
+
 {include file="footer.tpl"}
 
 

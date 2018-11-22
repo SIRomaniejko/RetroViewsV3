@@ -34,4 +34,14 @@ class ComentariosAPI extends Api{
       return $this->json_response(null, 404);
     }
 	}
+	function deleteComentario($param = null){
+		if(isset($param)){
+			$data = $this->model->deleteComentario($param[0]);
+		}
+		if(isset($data)){
+      return $this->json_response($data, 200);
+    }else{
+      return $this->json_response(null, 404);
+    }
+	}
 }

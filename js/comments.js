@@ -60,4 +60,17 @@ function showComments(objeto){
     };
     let html = templateComment(context);
     container.innerHTML += html;
+    document.querySelectorAll(".js-borrarComentario").forEach(comentario=>{
+        comentario.addEventListener("click", ()=>{
+            fetch("api/comentarios/"+comentario.getAttribute("id_comentario"), {
+                method: 'DELETE',
+                headers: {
+                        'user': user,
+                        'pass': pass},
+            }).then(respuesta =>{
+                alert(respuesta.status);
+            })
+        })
+    })
 }
+
