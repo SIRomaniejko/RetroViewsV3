@@ -13,6 +13,9 @@ class ImagenesAPI extends Api{
     }
   }
   function deleteImagen($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
     if(!isset($param[0])){
         return $this->json_response(null, 403);
     }else{

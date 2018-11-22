@@ -2,9 +2,46 @@
 class Api{
 
   private $data;
+  private $userModel;
+  private $headers;
+
   function __construct(){
     $this->data = file_get_contents("php://input");
+    $this->headers = apache_request_headers();
+    $this->userModel =  new UsuariosModel;
   }
+  private function getNivel(){
+      if(isset($this->headers["user"]) && $this->headers["pass"]){
+          $user = $this->headers["user"];
+          $pass = $this->headers["pass"];
+          $dbUser = $this->userModel->getUsuario($user);
+          if(isset($dbUser)){
+              if (password_verify($pass, $dbUser["pass"])){
+                  return $dbUser['nivel'];
+              }
+          }
+      }
+      return 0;
+  }
+
+  function tienePermiso($nivel){
+      return $this->getNivel() >= $nivel;
+  }
+
+  function getSessionData(){
+      session_start();
+      if(isset($_SESSION['user']) && isset($_SESSION['pass']) && isset($_SESSION['nivel'])){
+          return $this->json_response(array(
+              'user' =>$_SESSION['user'],
+              'pass' => $_SESSION['pass'],
+              'nivel' => $_SESSION['nivel']
+          ),200);
+      }
+      else{
+          return $this->json_response(null, 404);
+      }
+  }
+
   function getData(){
     return json_decode($this->data); 
   }
@@ -42,9 +79,8 @@ class Api{
     }
     return $regreso;
   }
-  private $filtro;
-  
-  private function ordenGet($arr, $filtro){
+
+  protected function ordenGet($arr, $filtro){
     $size = count($arr)-1;
     for ($i=0; $i<$size; $i++) {
         for ($j=0; $j<$size-$i; $j++) {
@@ -66,5 +102,6 @@ class Api{
     }
     return $arr;
   }
+
 }
 ?>

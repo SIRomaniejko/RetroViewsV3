@@ -21,7 +21,10 @@ class ArticulosAPI extends Api{
     }
   }
   function deleteArticulo($param = null){
-    if(isset($param)){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
+    if(isset($param[0])){
       $id = $param[0];
       $data = $this->model->eliminarReviewPorId($id);
     }else{
@@ -34,6 +37,9 @@ class ArticulosAPI extends Api{
     }
   }
   function updateArticulo($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
     if(isset($param)){
       $nuevo = $this->getData();
       if(isset($nuevo->id_categoria) && isset($nuevo->titulo) && isset($nuevo->contenido) && isset($nuevo->resumen)){
@@ -51,6 +57,9 @@ class ArticulosAPI extends Api{
     }
   }
   function insertArticulo($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
     $json = $this->getData();
     if(isset($json->id_categoria) && isset($json->titulo) && isset($json->contenido) && isset($json->resumen)){
         $data = $this->model->subirReview($json->id_categoria,$json->titulo,$json->contenido,$json->resumen);

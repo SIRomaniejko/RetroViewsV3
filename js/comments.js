@@ -27,7 +27,11 @@ if(document.querySelector("#submit") !=null){
                     'user': user,
                     'pass': pass},
         }).then(respuesta =>{
-            alert(respuesta.status);
+            if(!respuesta.ok){
+                if(respuesta.status == 401){
+                    alert("no tenes permisos suficientes");
+                }
+            }
         })
     })
 }
@@ -38,10 +42,19 @@ if(boton != null){
             response.text().then(template =>{
                 templateComment = Handlebars.compile(template); // compila y prepara el template
                 getComments();
+                actualizacionAutomatica();
             })
         })  
     })
 }
+
+function actualizacionAutomatica(){
+    setTimeout(()=>{
+        getComments();
+        actualizacionAutomatica();
+    }, 2000)
+}
+
 
 function getComments(){
     fetch("api/comentarios?id_review="+ container.getAttribute("idReview")).then(resp =>{
@@ -56,7 +69,7 @@ function showComments(objeto){
         comentarios: objeto 
     };
     let html = templateComment(context);
-    container.innerHTML += html;
+    container.innerHTML = html;
     document.querySelectorAll(".js-borrarComentario").forEach(comentario=>{
         comentario.addEventListener("click", ()=>{
             fetch("api/comentarios/"+comentario.getAttribute("id_comentario"), {
@@ -64,9 +77,13 @@ function showComments(objeto){
                 headers: {
                         'user': user,
                         'pass': pass},
-            }).then(respuesta =>{
-                alert(respuesta.status);
-            })
+                }).then(respuesta =>{
+                    if(!respuesta.ok){
+                        if(respuesta.status == 401){
+                            alert("no tenes permisos suficientes");
+                        }
+                    }
+                })
         })
     })
 }

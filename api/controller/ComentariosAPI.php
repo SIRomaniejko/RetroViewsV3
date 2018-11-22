@@ -24,6 +24,9 @@ class ComentariosAPI extends Api{
     }
 	}
 	function insertComentario($param = null){
+		if(!$this->tienePermiso(1)){
+      return $this->json_response(null, 401);
+    }
 		$json = $this->getData();
 		if(isset($json->id_review) && isset($json->user) && isset($json->puntaje) && isset($json->contenido_comentario)){
 			$data = $this->model->insertComentario($json->id_review,$json->user,$json->puntaje,$json->contenido_comentario);
@@ -35,6 +38,9 @@ class ComentariosAPI extends Api{
     }
 	}
 	function deleteComentario($param = null){
+		if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
 		if(isset($param)){
 			$data = $this->model->deleteComentario($param[0]);
 		}

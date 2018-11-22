@@ -25,6 +25,6 @@ class ConfigApi{
       'comentarios#POST'=> 'ComentariosAPI#insertComentario',
       'comentarios#DELETE'=> 'ComentariosAPI#deleteComentario',
 
-      'getSessionData#GET' => 'SecuredAPI#getSessionData',
+      'getSessionData#GET' => 'Api#getSessionData',
   ];
 }

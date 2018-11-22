@@ -8,6 +8,9 @@ class UsuariosAPI extends Api{
     $this->model = new UsuariosModel();
   }
   function getUsuarios($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
     if(isset($param)){
       $id = $param[0];
       $data = $this->model->getUsuario($id);
@@ -21,6 +24,9 @@ class UsuariosAPI extends Api{
     }
   }
   function deleteUsuario($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
 		$nuevo = $this->getData();
     if(isset($nuevo->user)){
       $data = $this->model->borrarUsuario($nuevo->user);
@@ -34,6 +40,9 @@ class UsuariosAPI extends Api{
     }
   }
   function updateUsuario($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
 		$nuevo = $this->getData();
 		if(isset($nuevo->user) && isset($nuevo->nivel)){
 			$data = $this->model->updateUsuario($nuevo->user,$nuevo->nivel);
@@ -48,7 +57,7 @@ class UsuariosAPI extends Api{
   }
   function insertUsuario($param = null){
     $json = $this->getData();
-    $data = $this->model->insertUsuario($json->user,$json->pass,$json->nivel);
+    $data = $this->model->insertUsuario($json->user,$json->pass, 1);
     if(isset($data)){
       return $this->json_response($data, 200);
     }else{

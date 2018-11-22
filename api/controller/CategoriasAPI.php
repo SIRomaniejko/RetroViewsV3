@@ -21,6 +21,9 @@ class CategoriasAPI extends Api{
     }
   }
   function deleteCategoria($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
     if(isset($param)){
       $id = $param[0];
       $data = $this->model->eliminarCategoria($id);
@@ -34,6 +37,9 @@ class CategoriasAPI extends Api{
     }
   }
   function updateCategoria($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
     if(isset($param)){
       $nuevo = $this->getData();
       if(isset($nuevo->nombre_categoria)){
@@ -51,6 +57,9 @@ class CategoriasAPI extends Api{
     }
   }
   function insertCategoria($param = null){
+    if(!$this->tienePermiso(2)){
+      return $this->json_response(null, 401);
+    }
     $json = $this->getData();
     $data = $this->model->crearCategoria($json->nombre_categoria);
     if(isset($data)){
