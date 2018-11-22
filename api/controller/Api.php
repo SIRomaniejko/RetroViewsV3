@@ -21,9 +21,11 @@ class Api{
   private function _requestStatus($code){
      $status = array(
       200 => "OK",
-      404 => "Not found",
+      401 => "Unauthorized", 
       403 => "Forbidden",
+      404 => "Not found",
       406 => "Not acceptable",
+      418 => "I'm a teapot",
       500 => "Internal Server Error"
     );
     return ($status[$code])? $status[$code] : $status[500];
